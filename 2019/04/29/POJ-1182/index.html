@@ -208,7 +208,8 @@
 <h3 id="Source"><a href="#Source" class="headerlink" title="Source"></a>Source</h3><p>NOI 2001</p>
 <h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>裸的并查集题目，其实感觉应该不太会出，并查集主要用来优化时间复杂度之类的吧</p>
 <h3 id="解法0"><a href="#解法0" class="headerlink" title="解法0"></a>解法0</h3><p>种类并查集，开一个$rank$数组记录动物之间的关系，$pre$数组记录祖先，通过向量推导动物之间的关系，(这里就不赘述了，请移步<a href="https://blog.csdn.net/qq_39520417/article/details/81569982" target="_blank" rel="noopener">这里</a>)（hhhhh感觉自己说话好直男啊</p>
-<h3 id="解法1"><a href="#解法1" class="headerlink" title="解法1"></a>解法1</h3><p>图论拆点思想，其实给我的感觉就是把每种情况都列出来，$X$和$Y$都只有$A$,$B$,$C$三种可能，判断假话有三种方法，$D=1$表示同类，当$D=1$时是假话的可能只有两种情况：</p>
+<h3 id="解法1"><a href="#解法1" class="headerlink" title="解法1"></a>解法1</h3><p>图论拆点思想，其实给我的感觉就是把每种情况都列出来，$X$和$Y$都只有$A$,$B$,$C$三种可能。</p>
+<p>$D=1$表示同类，当$D=1$时是假话的可能只有两种情况：</p>
 <ol>
 <li><p>$X$属于$A$而$Y$属于$B$（这种情况和$X$属于$B$而$Y$属于$C$是一样的）</p>
 </li>
