@@ -178,14 +178,13 @@
   </h1>
   
   <article class="passage-article">
-    <p>#从无穷级数开始</p>
-<p>##写在前面</p>
+    <p><strong>写在前面</strong></p>
 <blockquote>
 <p>上天对我从来都不会亏待，都是往死里整—$paradise$</p>
 </blockquote>
-<p>##题目来源<br>今天终于去上了一节高数课 然后老师已经讲到无穷级数了==<br>然后得到了这个脑洞</p>
-<p>##题目<br>算出$f(n)=\sum_{i=0}^{n}n^{2}$<br>$n$是自然数</p>
-<p>##解法<br>解法$-1$<br>O（n）$的方法的话，对不起 我们不认识</p>
+<p><strong>题目来源</strong><br>今天终于去上了一节高数课 然后老师已经讲到无穷级数了==<br>然后得到了这个脑洞</p>
+<p><strong>题目</strong><br>算出$f(n)=\sum_{i=0}^{n}n^{2}$<br>$n$是自然数</p>
+<p><strong>解法</strong><br>解法$-1$<br>O（n）$的方法的话，对不起 我们不认识</p>
 <p>解法$0$<br>都已经$9102$年了<br>这种问题肯定是已经解决了<br>手动算出前几项<br>然后<a href="http://oeis.org/" target="_blank" rel="noopener">OEIS</a>一下<br>这个问题就<a href="http://oeis.org/search?q=0,1,5,14&amp;language=english&amp;go=Search" target="_blank" rel="noopener">解决</a>了</p>
 <p>解法$1$<br>可能解法$0$会让大家觉得这不是正道<br>然后我们现在来尝试自己猜一个式子然后再证明它是对的<br>比如聪明的$paradise$就会猜$f(n)=\frac{\left(n\right)\left(n+1\right)\left(2n+1\right)}{6}$<br>然后我们来证明这个式子是对的<br>当$n=0$时 我们有 $f(0)=\frac{0<em>1</em>1}{6}=0$<br>假设为$n$的时候成立<br>   那我们有$f(n)=\frac{\left(n\right)\left(n+1\right)\left(2n+1\right)}{6}$<br>   当$n=n+1$时,$f(n+1)=\frac{\left(n\right)\left(n+1\right)\left(2n+1\right)}{6}+(n+1)^2$<br>   展开得到 $f(n+1)=\frac{\left(n\right)\left(n+1\right)\left(2n+1\right)}{6}+\frac{(n+1)(6n+6)}{6}=\frac{(n+1)(2n^2+7n+6)}{6}=\frac{(n+1)(n+2)(2n+3)}{6}$<br>   即得证<br>   归纳法天下第一</p>
 <p>解法$2$<br>得益于解法$1$,然后我们又有了解法$2$<br>$f(n)+(n+1)^2=\sum_{i=0}^{n}（n+1）^2   =\sum_{i=0}^{n}n^2+\sum_{i=0}^{n}2n+\sum_{i=0}^{n}1=f(n)+2\sum_{i=0}^{n}n+n+1$<br>然后我们难受的发现$f(n)$都没了呜呜呜呜呜<br>只留下了一次方的求和</p>
