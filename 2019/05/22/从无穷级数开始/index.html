@@ -6,7 +6,7 @@
   <meta name="author" content="Wangling Xie">
   
   
-  <title>归档 | 第2页 | Hexo</title>
+  <title>从无穷级数开始 | Hexo</title>
 
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -42,7 +42,7 @@
     welcome: {"enable":false,"interval":30},
     start_time: "2019-4-26",
     passwords: ["efe07af7441da2b69c4a41e42e73be4db47f66010a56900788a458354a7373ec", ],
-    is_post: false,
+    is_post: true,
     lock: false,
     author: "Wangling Xie",
     share: {"twitter":true,"facebook":true,"weibo":true,"qq":true,"wechat":true},
@@ -160,55 +160,77 @@
 </nav>
 <div id="site-process"></div>
     <main>
-      <div class="timeline">
-  <h2 class="timeline-title">归档: 17篇</h2>
+      
+  <div class="passage">
+  <div class="passage-meta">
+    <span>
+      <i class="fa fa-calendar"></i>2019-05-22
+    </span>
+    
+    
+      <span>
+        | <i class="fa fa-unlock-alt"></i>UNLOCK
+      </span>
+    
+  </div>
+  <h1 class="passage-title">
+    从无穷级数开始
+  </h1>
   
+  <article class="passage-article">
+    <p>#从无穷级数开始</p>
+<p>##写在前面</p>
+<blockquote>
+<p>上天对我从来都不会亏待，都是往死里整—$paradise$</p>
+</blockquote>
+<p>##题目来源<br>今天终于去上了一节高数课 然后老师已经讲到无穷级数了==<br>然后得到了这个脑洞</p>
+<p>##题目<br>算出$f(n)=\sum_{i=0}^{n}n^{2}$<br>$n$是自然数</p>
+<p>##解法<br>解法$-1$<br>O（n）$的方法的话，对不起 我们不认识</p>
+<p>解法$0$<br>都已经$9102$年了<br>这种问题肯定是已经解决了<br>手动算出前几项<br>然后<a href="http://oeis.org/" target="_blank" rel="noopener">OEIS</a>一下<br>这个问题就<a href="http://oeis.org/search?q=0,1,5,14&amp;language=english&amp;go=Search" target="_blank" rel="noopener">解决</a>了</p>
+<p>解法$1$<br>可能解法$0$会让大家觉得这不是正道<br>然后我们现在来尝试自己猜一个式子然后再证明它是对的<br>比如聪明的$paradise$就会猜$f(n)=\frac{\left(n\right)\left(n+1\right)\left(2n+1\right)}{6}$<br>然后我们来证明这个式子是对的<br>当$n=0$时 我们有 $f(0)=\frac{0<em>1</em>1}{6}=0$<br>假设为$n$的时候成立<br>   那我们有$f(n)=\frac{\left(n\right)\left(n+1\right)\left(2n+1\right)}{6}$<br>   当$n=n+1$时,$f(n+1)=\frac{\left(n\right)\left(n+1\right)\left(2n+1\right)}{6}+(n+1)^2$<br>   展开得到 $f(n+1)=\frac{\left(n\right)\left(n+1\right)\left(2n+1\right)}{6}+\frac{(n+1)(6n+6)}{6}=\frac{(n+1)(2n^2+7n+6)}{6}=\frac{(n+1)(n+2)(2n+3)}{6}$<br>   即得证<br>   归纳法天下第一</p>
+<p>解法$2$<br>得益于解法$1$,然后我们又有了解法$2$<br>$f(n)+(n+1)^2=\sum_{i=0}^{n}（n+1）^2   =\sum_{i=0}^{n}n^2+\sum_{i=0}^{n}2n+\sum_{i=0}^{n}1=f(n)+2\sum_{i=0}^{n}n+n+1$<br>然后我们难受的发现$f(n)$都没了呜呜呜呜呜<br>只留下了一次方的求和</p>
+<p>那要不再试试三次方的？<br>$g(n)=\sum_{i=0}^{n}n^3$<br>$g(n)+\sum_{i=0}^{n}(n+1)^3=\sum_{i=0}^{n}（n+1）^3=\sum_{i=0}^{n}(n^3+3n^2+3n+1)=g(n)+3f(n)+\frac{3}{2}n(n+1)+n+1$<br>把$g(n)约掉$<br>我们就得到了$f(n)$的表达式==!<br>然后我知道了它叫<strong>扰动法</strong></p>
+<p>解法$3$<br>待定系数法<br>$A(n)=\sum_{i=0}^{n}n^0$  我们发现$A(n)=n+1$  这是个一次的式子<br>$B(n)=\sum_{i=0}^{n}n^1$  我们发现$B(n)=\frac{n*(n+1)}{2}$ 这是个二次的式子<br>？？？<br>那我们有理由相信$f(n)$的通项公式是三次的！<br>令$f(n)=an^3+bn^2+cn+d$<br>手动算出前几项带进去就好啦</p>
+<p>解法$4$<br>咕了</p>
+
+  </article>
+  <aside class="table-content" id="site-toc">
+  <div class="table-content-title">
+    <i class="fa fa-arrow-right fa-lg" id="site-toc-hide-btn"></i>
+    <span>目录</span>
+  </div>
+  <div class="table-content-main">
     
-      <h3 class="timeline-subtitle">2019</h3>
-    
-    <div class="timeline-item">
-      <time>2019-05-06</time>
-      <a target="_self" href="/2019/05/06/胡思乱想/">胡思乱想</a>
-    </div>
+  </div>
+</aside>
   
-    
-    <div class="timeline-item">
-      <time>2019-05-05</time>
-      <a target="_self" href="/2019/05/05/南京总结/">南京总结</a>
-    </div>
+    <aside class="passage-copyright">
+      <div>本文作者: paradise</div>
+      
+        <div>
+          原文链接: 
+          <a href target="_blank">https://zja0811.github.io/2019/05/22/从无穷级数开始/</a>
+        </div>
+      
+      <div>
+        版权声明: 本博客所有文章除特别声明外, 均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议. 转载请注明出处!
+      </div>
+    </aside>
   
-    
-    <div class="timeline-item">
-      <time>2019-05-01</time>
-      <a target="_self" href="/2019/05/01/南京第0天/">南京第0天</a>
-    </div>
-  
-    
-    <div class="timeline-item">
-      <time>2019-04-29</time>
-      <a target="_self" href="/2019/04/29/碎碎念/">碎碎念</a>
-    </div>
-  
-    
-    <div class="timeline-item">
-      <time>2019-04-29</time>
-      <a target="_self" href="/2019/04/29/POJ-1182/">POJ-1182</a>
-    </div>
-  
-    
-    <div class="timeline-item">
-      <time>2019-04-26</time>
-      <a target="_self" href="/2019/04/26/paradise的第一篇blog/">paradise的第一篇blog</a>
-    </div>
-  
-    
-    <div class="timeline-item">
-      <time>2019-04-26</time>
-      <a target="_self" href="/2019/04/26/hello-world/">Hello World</a>
-    </div>
   
 </div>
+
     </main>
+    
+      
+<div class="site-comment-contanier" data-plateform="leancloud">
+  
+    <p id="site-comment-info">
+      <i class="fa fa-spinner fa-spin"></i> 评论加载中
+    </p>
+    <div id="site-comment"></div>
+  
+</div>
     
     <div class="site-footer-wrapper">
   <footer class="site-footer">
@@ -272,19 +294,19 @@
 
 <div class="bottom-bar">
   <div class="bottom-bar-left">
-    <a href="/archives/" data-enable="true">
+    <a href="javascript:void(0);" data-enable="false">
       <i class="fa fa-arrow-left"></i>
     </a>
-    <a href="javascript:void(0);" data-enable="false">
+    <a href="/2019/05/20/算法基础目录/" data-enable="true">
       <i class="fa fa-arrow-right"></i>
     </a>
   </div>
   <div class="bottom-bar-right">
-    <a href="javascript:void(0);" data-enable="false" id="site-toc-show-btn">
+    <a href="javascript:void(0);" data-enable="true" id="site-toc-show-btn">
       <i class="fa fa-bars"></i>
     </a>
     
-      <a href="javascript:void(0);" data-enable="false">
+      <a href="#site-comment" data-enable="true">
         <i class="fa fa-commenting"></i>
       </a>
     
