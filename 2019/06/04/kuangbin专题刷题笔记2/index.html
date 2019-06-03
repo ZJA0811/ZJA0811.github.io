@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html>
+  
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  <meta name="author" content="Wangling Xie">
+  
+  
+  <title>kuangbin专题刷题笔记2 | Hexo</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta name="keywords" content="Hexo, Theme-AD">
+  
+
+  
+  <meta name="description" content="谢望凌">
+
+  
+
+  
+    <script src="//cdn.jsdelivr.net/npm/leancloud-storage@3.11.1/dist/av-min.js" async></script>
+  
+
+  
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+  
+
+  
+    <script src="//unpkg.com/valine/dist/Valine.min.js" async></script>
+  
+
+  
+
+  <script>
+  // theme-ad's config script
+  // it can be used in every script
+  
+  window.AD_CONFIG = {
+    leancloud: {"appid":"Hyq9wkH495DgNHWhDQCOfQSp-gzGzoHsz","appkey":"WaR7nrzhliHj9aVwdQzkdlGd","comment":true,"count":true},
+    welcome: {"enable":false,"interval":30},
+    start_time: "2019-4-26",
+    passwords: ["efe07af7441da2b69c4a41e42e73be4db47f66010a56900788a458354a7373ec", ],
+    is_post: true,
+    lock: false,
+    author: "Wangling Xie",
+    share: {"twitter":true,"facebook":true,"weibo":true,"qq":true,"wechat":true},
+    mathjax: true,
+    page_type: "",
+    root: "/"
+  };
+</script>
+
+  <script src="/vendor/sha256.min.js"></script>
+<script src="/js/auth.js"></script>
+<script src="/js/index.js"></script>
+<script src="/vendor/qrcode.min.js"></script>
+
+  
+    <link rel="icon" href="/images/favicon.ico">
+    <link rel="apple-touch-icon" href="/images/touch-icon.png">
+  
+
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="/css/index.css">
+<link rel="stylesheet" href="/styles/components/highlight/highlight.css">
+
+  
+</head>
+  <body>
+    <header class="site-header">
+  <div class="site-header-brand">
+    
+      <span class="site-header-brand-title">
+        <a href="/">Blog</a>
+      </span>
+    
+    
+      <span class="site-header-brand-motto"> | OUCer</span>
+    
+  </div>
+  <div class="site-header-right">
+    <nav class="site-header-navigation">
+      
+        <a href="/" target="_self">首页</a>
+      
+        <a href="/archives/" target="_self">归档</a>
+      
+        <a href="/tags/" target="_self">标签</a>
+      
+        <a href="/categories/" target="_self">分类</a>
+      
+        <a href="/friends/" target="_self">友链</a>
+      
+        <a href="/about/" target="_self">关于</a>
+      
+    </nav>
+    <div class="site-header-btn">
+      
+        <a href="https://github.com/ZJA0811/" target="_blank" id="site-github">
+          <i class="fa fa-github-alt"></i>
+        </a>
+      
+      <a href="javascript:void(0);" id="site-search">
+        <i class="fa fa-search"></i>
+      </a>
+      <a href="javascript:void(0);" id="site-nav-btn">
+        <i class="fa fa-ellipsis-v"></i>
+      </a>
+    </div>
+  </div>
+</header>
+<nav class="table-content" id="site-nav">
+  <div class="table-content-title">
+    <span>导航</span>
+  </div>
+  <div class="table-content-main">
+    <ol class="toc">
+      
+        <li class="toc-item">
+          <a href="/" target="_self">
+            首页
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="/archives/" target="_self">
+            归档
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="/tags/" target="_self">
+            标签
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="/categories/" target="_self">
+            分类
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="/friends/" target="_self">
+            友链
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="/about/" target="_self">
+            关于
+          </a>
+        </li>
+      
+    </ol>
+  </div>
+</nav>
+<div id="site-process"></div>
+    <main>
+      
+  <div class="passage">
+  <div class="passage-meta">
+    <span>
+      <i class="fa fa-calendar"></i>2019-06-04
+    </span>
+    
+    
+      <span>
+        | <i class="fa fa-unlock-alt"></i>UNLOCK
+      </span>
+    
+  </div>
+  <h1 class="passage-title">
+    kuangbin专题刷题笔记2
+  </h1>
+  
+  <article class="passage-article">
+    <p>$kuangbin$专题$6$.最小生成树<br>$MST:kruskal$ &amp;&amp; $prim$ &amp;&amp; $Boruvka$<br>(这个$Boruvka$算法我不会…<br>我好菜啊我好菜啊我好菜啊呜呜呜太菜了<br>顺便把<strong>图论基础和建图方法</strong>部分放在这里了<br>然后快要考试了 刷完这一部分估计就咕到暑假再来了<br><strong>图论基础</strong><br>$G:graph$  $\qquad$ $V:vertex$  $\qquad$$E:edge$<br>顶点的度数和度序列<br>$degree:$（度）一个顶点的度是与它相关联的边的条数，记作$TD(U)$<br>在无向图和有向图中，边的个数和顶点的度都存在如下关系(假设图$G$有$N$ 个顶点，有$e$条边)： $e=\frac{1}{2}\sum_{i=1}^n TD(Vi)$<br><strong>偶点</strong>：度数为偶数的顶点；<br><strong>奇点</strong>：度数为奇数的顶点；<br><strong>孤立顶点</strong>：度数为$0$的顶点，称为孤立顶点。孤立顶点不与其他任何顶点邻接。<br><strong>叶（叶顶点、端点）</strong>：度数为$1$的顶点，称为叶顶点。其他顶点称为非叶顶点。<br><strong>图G的最小度</strong>：图$G$所有顶点的最小的度数，记为$δ(G)$。<br><strong>图G的最大度</strong>：图$G$所有顶点的最大的度数，记为$Δ(G)$。<br><strong>度序列</strong>：若把图$G$所有顶点的度数排成一个序列$s$，则称$s$为图$G$的度序列。<br>有关度序列的两个问题：<br>两个问题：<br>$1)$ 给定一个图，确定它的度序列：很简单；<br>$2)$ 逆问题：给定一个由非负整数组成的有限序列$s$，判断$s$是否是某个图的度序列。<br>$Havel-Hakimi$定理：由非负整数组成的非增序列$s：d1, d2, …, dn(n ≥ 2, d1 ≥ 1)$是可图的，当且仅当序列<br>$s1: d2 – 1, d3 – 1, …, $d<sub>d1+1</sub>$, $d<sub>d2+1</sub>$,dn$是可图的。序列$s1$中有$n-1$个非负整数，$s$序列中$d1$后的前$d1$个度数(即$d2 ～ $d<sub>d1+1</sub>$)$减$1$后构成$s1$中的前$d1$个数。<br>全为$0$则能构成图<br><a href="http://poj.org/problem?id=1659" target="_blank" rel="noopener"><strong>POJ-1659</strong></a> 请</p>
+<p><strong>建图方法</strong><br>$0.$邻接矩阵<br>在邻接矩阵中，除了一个记录各个顶点信息的<strong>顶点数组</strong>外，还有一个表示<strong>各顶点之间关系</strong>的矩阵，称为<strong>邻接矩阵</strong>。<br>设$G(V,E)$是一个具有$n$个顶点的图，则图的邻接矩阵是一个二维数组$Edge[n][n]$<br>它的定义为：<br>$$Edge[i][j] = \begin{cases}<br>1 &amp; 如果&lt;i,j&gt;\in E或(i,j)\in E \<br>0&amp; 否则<br>\end{cases}$$<br>如果图中存在环（连接某个顶点自身的边）和重边（多条边的起点一样，终点也一样）的情形，则无法用邻接矩阵存储。<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn=<span class="number">105</span>;</span><br><span class="line"><span class="keyword">int</span> n,m;<span class="comment">//顶点数和边数</span></span><br><span class="line"><span class="keyword">int</span> a,b;<span class="comment">//边的起点和终点</span></span><br><span class="line"><span class="keyword">int</span> G[maxn][maxn];</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Init</span><span class="params">()</span><span class="comment">//初始化</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;n;j++)</span><br><span class="line">        &#123;</span><br><span class="line">            G[i][j]=<span class="number">-1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">cin</span>&gt;&gt;n&gt;&gt;m;</span><br><span class="line">    <span class="keyword">while</span> (m--)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">cin</span>&gt;&gt;a&gt;&gt;b;<span class="comment">//输入起点终点 （权值w</span></span><br><span class="line">        G[a][b]=<span class="number">1</span>;<span class="comment">//置为权值</span></span><br><span class="line">        G[b][a]=<span class="number">1</span>;<span class="comment">//若为无向图 插入边b a</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>$1.$邻接表<br>邻接表：把同一个顶点发出的边链接在同一个称为边链表的单链表中。(这种邻接表也称为出边表)<br>单链表的每个结点代表一条边，称为边结点，每个边结点有$2$个域。<br>逆邻接表：也称为入边表，顶点i的边链表中链接的是所有进入该顶点的边。适合求顶点的入度。<br>（好吧其实这些都没用 我不会用指针 下面我们来看用数组模拟邻接表<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn=<span class="number">105</span>;</span><br><span class="line"><span class="keyword">int</span> head[maxn];</span><br><span class="line"><span class="keyword">int</span> next[maxn];</span><br><span class="line"><span class="built_in">memset</span>(head,<span class="number">-1</span>,<span class="keyword">sizeof</span>(head));</span><br><span class="line">edge_cnt=<span class="number">0</span>;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Edge</span>//边结构体</span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">int</span> u,v,w;<span class="comment">// 起点 终点 权值</span></span><br><span class="line">    <span class="keyword">int</span> next;<span class="comment">//下一个</span></span><br><span class="line">&#125;e[maxn];</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">addEdge</span><span class="params">(<span class="keyword">int</span> u,<span class="keyword">int</span> v,<span class="keyword">int</span> w)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    e[edge_cnt].u=u;</span><br><span class="line">    e[edge_cnt].v=v;</span><br><span class="line">    e[edge_cnt].w=w;</span><br><span class="line">    e[edge_cnt].next=head[u];<span class="comment">//</span></span><br><span class="line">    head[u]=edge_cnt++;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>$MST$$\qquad$$14$题<br>附上一张<a href="https://vjudge.net/contest/302357#rank" target="_blank" rel="noopener">rank表</a><br>$A.$<a href="https://vjudge.net/problem/POJ-1251" target="_blank" rel="noopener">POJ-1251</a><strong><del>[paradise]</del> <del>[小学妹]</del></strong><br>$B.$<a href="https://vjudge.net/problem/POJ-1287" target="_blank" rel="noopener">POJ-1287</a><strong><del>[paradise]</del> <del>[小学妹]</del></strong><br>$C.$<a href="https://vjudge.net/problem/POJ-2031" target="_blank" rel="noopener">POJ-2031</a><strong><del>[paradise]</del> <del>[小学妹]</del></strong><br>$D.$<a href="https://vjudge.net/problem/POJ-2421" target="_blank" rel="noopener">POJ-2421</a><strong><del>[paradise]</del><del>[小学妹]</del></strong><br>$E.$<a href="https://vjudge.net/problem/ZOJ-1586" target="_blank" rel="noopener">ZOJ-1586</a> 手懒了 不在开的比赛里 所以没写…<br>$F.$<a href="https://vjudge.net/problem/POJ-1789" target="_blank" rel="noopener">POJ-1789</a><strong><del>[paradise]</del><del>[小学妹]</del></strong><br>$G.$<a href="https://vjudge.net/problem/POJ-2349" target="_blank" rel="noopener">POJ-2349</a><strong><del>[paradise]</del><del>[小学妹]</del></strong><br>$H.$<a href="https://vjudge.net/problem/POJ-1751" target="_blank" rel="noopener">POJ-1751</a><strong><del>[paradise]</del><del>[小学妹]</del></strong><br>$I.$<a href="https://vjudge.net/problem/POJ-1258" target="_blank" rel="noopener">POJ-1258</a><strong><del>[paradise]</del><del>[小学妹]</del></strong><br>$J.$<a href="https://vjudge.net/problem/POJ-3026" target="_blank" rel="noopener">POJ-3026</a><strong><del>[paradise]</del></strong><br>$K.$<a href="https://vjudge.net/problem/POJ-1679" target="_blank" rel="noopener">POJ-1679</a><strong><del>[paradise]</del></strong><br>$l.$<a href="https://vjudge.net/problem/HDU-1233" target="_blank" rel="noopener">HDU-1233</a><strong><del>[paradise]</del> <del>[小学妹]</del></strong><br>$M.$<a href="https://vjudge.net/problem/HDU-1301" target="_blank" rel="noopener">HDU-1301</a><strong><del>[paradise]</del></strong><br>$N.$<a href="https://vjudge.net/problem/HDU-1875" target="_blank" rel="noopener">HDU-1875</a><strong><del>[paradise]</del></strong></p>
+<p>$problemA.$<strong>Jungle Roads</strong><br>把字符转化成数字 再跑$kruskal$或$prim$</p>
+<p>$problem B.$<strong>Networking</strong><br>板子题…</p>
+<p>$problem C.$<strong>Building a Space Station</strong><br>三维球面问题转化一下。。。板子中的$val$就是两个点间距减去两个球的半径<br><strong>（选G++编译器会卡掉double的%lf占位符，%f不会。<br>选C++编译器两个都能过）</strong></p>
+<p>$problem D.$<strong>Constructing Roads</strong><br>改一下输入，然后已建成的边权值置为0</p>
+<p>$problem F.$<strong>Truck History</strong><br>把字符转化一下变成距离再跑MST</p>
+<p>$problem G.$<strong>Arctic Network</strong><br>MST小变形</p>
+<p>$problem H.$<strong>Highways</strong><br>同G</p>
+<p>$problem I.$<strong>Agri-Net</strong><br>这题和D题差不多  改一下输入 用二维数组存权值</p>
+<p>$problem J.$<strong>Borg Maze</strong><br>BFS+MST</p>
+<p>$problem K.$<strong>The Unique MST</strong><br><del>次小生成树</del>不会<br>MST+标记 然后乱七八糟操作搞出来</p>
+<p>$problem L.$<strong>还是畅通工程</strong><br>板子题…</p>
+<p>$problem M.$<strong>Jungle Roads</strong><br>原来这题和$A$题一样啊…</p>
+<p>$problem N.$<strong>畅通工程再续</strong><br>邻接表储存</p>
+<p>总结：<br>1.直接套板子<br>2.改一下输入 然后把已连接的边置0再跑MST<br>3.转换维度MST<br>4.预处理MST<br>5.BFS+MST</p>
+<p>其实MST的题代码90%都一样吧…<br>然后更完这一篇之后大概一个月不会再弄了<br>滚去期末预习 六月预习周噢<br>完全没有出勤分的我瑟瑟发抖 像我这种蒟蒻滚去预习了</p>
+
+  </article>
+  <aside class="table-content" id="site-toc">
+  <div class="table-content-title">
+    <i class="fa fa-arrow-right fa-lg" id="site-toc-hide-btn"></i>
+    <span>目录</span>
+  </div>
+  <div class="table-content-main">
+    
+  </div>
+</aside>
+  
+    <aside class="passage-copyright">
+      <div>本文作者: paradise</div>
+      
+        <div>
+          原文链接: 
+          <a href target="_blank">https://zja0811.github.io/2019/06/04/kuangbin专题刷题笔记2/</a>
+        </div>
+      
+      <div>
+        版权声明: 本博客所有文章除特别声明外, 均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议. 转载请注明出处!
+      </div>
+    </aside>
+  
+  
+</div>
+
+    </main>
+    
+      
+<div class="site-comment-contanier" data-plateform="leancloud">
+  
+    <p id="site-comment-info">
+      <i class="fa fa-spinner fa-spin"></i> 评论加载中
+    </p>
+    <div id="site-comment"></div>
+  
+</div>
+    
+    <div class="site-footer-wrapper">
+  <footer class="site-footer">
+    
+    <div class="site-footer-info">
+      <i class="fa fa-clock-o"></i> 本站已稳定运行<span id="site-time"></span>
+    </div>
+    
+      <div class="site-footer-info">
+        <i class="fa fa-paw"></i> 您是本站第 <span id="site-count"></span> 位访客
+      </div>
+    
+    
+      <div class="site-footer-info">
+        <i class="fa fa-at"></i> Email: 1246785974@qq.com
+      </div>
+    
+    <div class="site-footer-info">
+      <i class="fa fa-copyright"></i> 
+      2019 <a href="https://github.com/dongyuanxin/theme-ad/" target="_blank">Theme-AD</a>.
+      Created by <a href="https://godbmw.com/" target="_blank">GodBMW</a>.
+      All rights reserved.
+    </div>
+  </footer>
+</div>
+    <div id="site-layer" style="display:none;">
+  <div class="site-layer-content">
+    <div class="site-layer-header">
+      <span class="site-layer-header-title" id="site-layer-title"></span>
+      <i class="fa fa-close" id="site-layer-close"></i>
+    </div>
+    <div class="site-layer-body" id="site-layer-container">
+      <div class="site-layer-input" id="site-layer-search" style="display: none;">
+        <input type="text">
+        <i class="fa fa-search"></i>
+      </div>
+      
+        <div class="site-layer-reward" id="site-layer-reward" style="display: none;">
+          
+            <div>
+              <img src="/images/wechat.png" alt="WeChat">
+              
+                <p>WeChat</p>
+              
+            </div>
+          
+            <div>
+              <img src="/images/alipay.png" alt="AliPay">
+              
+                <p>AliPay</p>
+              
+            </div>
+          
+        </div>
+      
+      <div id="site-layer-welcome" style="display:none;"></div>
+    </div>
+  </div>
+</div>
+    
+
+<div class="bottom-bar">
+  <div class="bottom-bar-left">
+    <a href="javascript:void(0);" data-enable="false">
+      <i class="fa fa-arrow-left"></i>
+    </a>
+    <a href="/2019/05/30/崩溃/" data-enable="true">
+      <i class="fa fa-arrow-right"></i>
+    </a>
+  </div>
+  <div class="bottom-bar-right">
+    <a href="javascript:void(0);" data-enable="true" id="site-toc-show-btn">
+      <i class="fa fa-bars"></i>
+    </a>
+    
+      <a href="#site-comment" data-enable="true">
+        <i class="fa fa-commenting"></i>
+      </a>
+    
+    <a href="javascript:void(0);" id="site-toggle-share-btn">
+      <i class="fa fa-share-alt"></i>
+    </a>
+    
+      <a href="javascript:void(0);" id="site-reward">
+        <i class="fa fa-thumbs-up"></i>
+      </a>
+    
+    <a href="javascript:void(0);" id="back-top-btn">
+      <i class="fa fa-chevron-up"></i>
+    </a>
+  </div>
+</div>
+    <div id="share-btn">
+  
+    <a id="share-btn-twitter" href="javascript:void(0);" target="_blank">
+      <i class="fa fa-twitter"></i>
+    </a>
+  
+  
+    <a id="share-btn-facebook" href="javascript:void(0);" target="_blank">
+      <i class="fa fa-facebook"></i>
+    </a>
+  
+  
+    <a id="share-btn-weibo" href="javascript:void(0);" target="_blank">
+      <i class="fa fa-weibo"></i>
+    </a>
+  
+  
+    <a id="share-btn-qq" href="javascript:void(0);" target="_blank">
+      <i class="fa fa-qq"></i>
+    </a>
+  
+  
+    <a id="share-btn-wechat" href="javascript:void(0);" target="_blank">
+      <i class="fa fa-wechat"></i>
+    </a>
+  
+</div>
+    
+
+
+
+
+
+    
+  </body>
+</html>
