@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html>
+  
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  <meta name="author" content="Wangling Xie">
+  
+  
+  <title>kuangbin专题刷题笔记1 | Hexo</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta name="keywords" content="Hexo, Theme-AD">
+  
+
+  
+  <meta name="description" content="谢望凌">
+
+  
+
+  
+    <script src="//cdn.jsdelivr.net/npm/leancloud-storage@3.11.1/dist/av-min.js" async></script>
+  
+
+  
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+  
+
+  
+    <script src="//unpkg.com/valine/dist/Valine.min.js" async></script>
+  
+
+  
+
+  <script>
+  // theme-ad's config script
+  // it can be used in every script
+  
+  window.AD_CONFIG = {
+    leancloud: {"appid":"Hyq9wkH495DgNHWhDQCOfQSp-gzGzoHsz","appkey":"WaR7nrzhliHj9aVwdQzkdlGd","comment":true,"count":true},
+    welcome: {"enable":false,"interval":30},
+    start_time: "2019-4-26",
+    passwords: ["efe07af7441da2b69c4a41e42e73be4db47f66010a56900788a458354a7373ec", ],
+    is_post: true,
+    lock: false,
+    author: "Wangling Xie",
+    share: {"twitter":true,"facebook":true,"weibo":true,"qq":true,"wechat":true},
+    mathjax: true,
+    page_type: "",
+    root: "/"
+  };
+</script>
+
+  <script src="/vendor/sha256.min.js"></script>
+<script src="/js/auth.js"></script>
+<script src="/js/index.js"></script>
+<script src="/vendor/qrcode.min.js"></script>
+
+  
+    <link rel="icon" href="/images/favicon.ico">
+    <link rel="apple-touch-icon" href="/images/touch-icon.png">
+  
+
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="/css/index.css">
+<link rel="stylesheet" href="/styles/components/highlight/highlight.css">
+
+  
+</head>
+  <body>
+    <header class="site-header">
+  <div class="site-header-brand">
+    
+      <span class="site-header-brand-title">
+        <a href="/">Blog</a>
+      </span>
+    
+    
+      <span class="site-header-brand-motto"> | OUCer</span>
+    
+  </div>
+  <div class="site-header-right">
+    <nav class="site-header-navigation">
+      
+        <a href="/" target="_self">首页</a>
+      
+        <a href="/archives/" target="_self">归档</a>
+      
+        <a href="/tags/" target="_self">标签</a>
+      
+        <a href="/categories/" target="_self">分类</a>
+      
+        <a href="/friends/" target="_self">友链</a>
+      
+        <a href="/about/" target="_self">关于</a>
+      
+    </nav>
+    <div class="site-header-btn">
+      
+        <a href="https://github.com/ZJA0811/" target="_blank" id="site-github">
+          <i class="fa fa-github-alt"></i>
+        </a>
+      
+      <a href="javascript:void(0);" id="site-search">
+        <i class="fa fa-search"></i>
+      </a>
+      <a href="javascript:void(0);" id="site-nav-btn">
+        <i class="fa fa-ellipsis-v"></i>
+      </a>
+    </div>
+  </div>
+</header>
+<nav class="table-content" id="site-nav">
+  <div class="table-content-title">
+    <span>导航</span>
+  </div>
+  <div class="table-content-main">
+    <ol class="toc">
+      
+        <li class="toc-item">
+          <a href="/" target="_self">
+            首页
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="/archives/" target="_self">
+            归档
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="/tags/" target="_self">
+            标签
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="/categories/" target="_self">
+            分类
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="/friends/" target="_self">
+            友链
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="/about/" target="_self">
+            关于
+          </a>
+        </li>
+      
+    </ol>
+  </div>
+</nav>
+<div id="site-process"></div>
+    <main>
+      
+  <div class="passage">
+  <div class="passage-meta">
+    <span>
+      <i class="fa fa-calendar"></i>2019-05-14
+    </span>
+    
+    
+      <span>
+        | <i class="fa fa-unlock-alt"></i>UNLOCK
+      </span>
+    
+  </div>
+  <h1 class="passage-title">
+    kuangbin专题刷题笔记1
+  </h1>
+  
+  <article class="passage-article">
+    <p>路漫漫其修远兮 吾将上下而搜索<br>搜索：$DFS$ &amp;&amp; $BFS$<br>kuangbin 专题1 <a href="https://vjudge.net/article/371" target="_blank" rel="noopener">[简单搜索]</a><br>（算复习一下搜索吧（补题<br>A.<a href="https://vjudge.net/problem/POJ-1321" target="_blank" rel="noopener">[POJ-1321]</a>      <strong>[<del>paradise</del>]    [<del>小学妹</del>]</strong><br>B.<a href="https://vjudge.net/problem/POJ-2251" target="_blank" rel="noopener">[POJ-2251]</a>    <strong>[<del>paradise</del>]  [<del>小学妹</del>]</strong><br>C.<a href="https://vjudge.net/problem/POJ-3278" target="_blank" rel="noopener">[POJ-3278]</a>     <strong>[<del>paradise</del>]  [<del>小学妹</del>]</strong><br>D.<a href="https://vjudge.net/problem/POJ-3279" target="_blank" rel="noopener">[POJ-3279]</a><br>E.<a href="https://vjudge.net/problem/POJ-1426" target="_blank" rel="noopener">[POJ-1426]</a>          <strong>[<del>paradise</del>]</strong><br>F.<a href="https://vjudge.net/problem/POJ-3126" target="_blank" rel="noopener">[POJ-3126]</a>         <strong>[<del>paradise]</del></strong><br>G.<a href="https://vjudge.net/problem/POJ-3087" target="_blank" rel="noopener">[POJ-3087]</a><strong>[<del>paradise</del>]</strong><br>H.<a href="https://vjudge.net/problem/POJ-3414" target="_blank" rel="noopener">[POJ-3414]</a><br>I.<a href="https://vjudge.net/problem/FZU-2150" target="_blank" rel="noopener">[FZU-2150]</a> <strong>[<del>paradise]</del></strong><br>J.<a href="https://vjudge.net/problem/UVA-11624" target="_blank" rel="noopener">[UVA-11624]</a><br>K.<a href="https://vjudge.net/problem/POJ-3984" target="_blank" rel="noopener">[POJ-3984]</a>       <strong>[<del>paradise</del>]  [<del>小学妹</del>]</strong><br>L.<a href="https://vjudge.net/problem/HDU-1241" target="_blank" rel="noopener">[HDU-1241]</a>       <strong>[<del>paradise</del>]  [<del>小学妹</del>]</strong><br>M.<a href="https://vjudge.net/problem/HDU-1495" target="_blank" rel="noopener">[HDU-1495]</a>      <strong>[<del>paradise</del>]  [<del>小学妹</del>]</strong><br>N.<a href="https://vjudge.net/problem/HDU-2612" target="_blank" rel="noopener">[HDU-2612]</a>       <strong>[<del>paradise</del>]</strong><br>AC代码在VJ平台上有保存<br>这里也有一丢丢<br>把题目嘴巴一下</p>
+<p><strong>$BFS$：主函数输入输出+一些初始化<br>$BFS$函数：两个点 $current$ $next$ 标记 入队 非空时 取出点 搜索操作 剪枝 标记 继续入队</strong> </p>
+<p><strong>$problem A$.棋盘问题</strong><br>走过一列就把它标记下来下次的时候就不可以再摆放在这一列<br>（因为题目要求不可以将棋子摆放在同一行和同一列）<br>然后就从下一行开始寻找可行的地方，直到我们摆放的棋子数与我们被要求摆放的棋子数相同时，我们就将方案数进行一次++，然后在进行递归下去<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">long</span> <span class="keyword">long</span> <span class="keyword">int</span>  ans=<span class="number">0</span>;</span><br><span class="line"><span class="keyword">int</span> n,k;</span><br><span class="line"><span class="keyword">char</span> mp[<span class="number">10</span>][<span class="number">16</span>];</span><br><span class="line"><span class="keyword">bool</span> vis[<span class="number">10</span>];</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> row,<span class="keyword">int</span> current)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (current==k)</span><br><span class="line">    &#123;</span><br><span class="line">        ans++;</span><br><span class="line">        <span class="keyword">return</span> ;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (row&gt;=n)</span><br><span class="line">        <span class="keyword">return</span> ;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (mp[row][i]==<span class="string">'#'</span>&amp;&amp;!vis[i])</span><br><span class="line">        &#123;</span><br><span class="line">            vis[i]=<span class="literal">true</span>;</span><br><span class="line">            dfs(row+<span class="number">1</span>,current+<span class="number">1</span>);</span><br><span class="line">            vis[i]=<span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    dfs(row+<span class="number">1</span>,current);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">while</span> (<span class="built_in">scanf</span>(<span class="string">"%d%d"</span>,&amp;n,&amp;k)!=EOF&amp;&amp;(n!=<span class="number">-1</span>&amp;&amp;k!=<span class="number">-1</span>))</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">"%s"</span>,&amp;mp[i]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">memset</span>(vis,<span class="literal">false</span>,<span class="keyword">sizeof</span>(vis));</span><br><span class="line">        dfs(<span class="number">0</span>,<span class="number">0</span>);</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%lld\n"</span>,ans);</span><br><span class="line">        ans=<span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong>$problem B$. Dungeon Master</strong><br>$BFS$从二维转到三维 往六个方向进行搜索<br>$queue$用法 （$FIFO$）<br>$push()$   //即插入元素<br>$pop（)$   //删除元素<br>$front()$  //读取队首元素<br>$back()$  //读取队尾元素<br>$empty（）$ //判断队列是否为空<br>$size（）$  //返回队列大小<br>注意全局变量和$memset$使用 队列使用要熟练<br>（代码虽然跑得慢 但毕竟是亲生的<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">int</span> l, r, c;</span><br><span class="line"><span class="keyword">char</span> mp[<span class="number">35</span>][<span class="number">35</span>][<span class="number">35</span>];</span><br><span class="line"><span class="keyword">int</span>  vis[<span class="number">35</span>][<span class="number">35</span>][<span class="number">35</span>];</span><br><span class="line"><span class="keyword">int</span>  mv[<span class="number">6</span>][<span class="number">17</span>] = &#123; <span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">-1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">-1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">-1</span> &#125;;</span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">Node</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">	<span class="keyword">int</span> x;</span><br><span class="line">	<span class="keyword">int</span> y;</span><br><span class="line">	<span class="keyword">int</span> z;</span><br><span class="line">&#125;node;</span><br><span class="line"><span class="keyword">int</span> dis[<span class="number">35</span>][<span class="number">35</span>][<span class="number">35</span>];</span><br><span class="line"><span class="keyword">int</span> sx,sy,sz;</span><br><span class="line"><span class="keyword">int</span> ex,ey,ez;</span><br><span class="line"><span class="function"><span class="keyword">int</span>  <span class="title">judge</span><span class="params">(<span class="keyword">int</span> z,<span class="keyword">int</span> x,<span class="keyword">int</span> y)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(x&lt;<span class="number">0</span>||y&lt;<span class="number">0</span>||z&lt;<span class="number">0</span>||x&gt;=r||y&gt;=c||z&gt;=l||mp[z][x][y]==<span class="string">'#'</span>||vis[z][x][y])</span><br><span class="line">           <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">     <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">bfs</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    node temp, next;</span><br><span class="line">    <span class="built_in">queue</span>&lt;node&gt;q;</span><br><span class="line">    temp.x=sx;</span><br><span class="line">    temp.y=sy;</span><br><span class="line">    temp.z=sz;</span><br><span class="line">	q.push(temp);</span><br><span class="line">	vis[sz][sx][sy] = <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">while</span> (!q.empty())</span><br><span class="line">	&#123;</span><br><span class="line">		temp = q.front();</span><br><span class="line">		q.pop();</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">6</span>; i++)</span><br><span class="line">		&#123;</span><br><span class="line">			next.x = temp.x + mv[i][<span class="number">0</span>];</span><br><span class="line">			next.y = temp.y + mv[i][<span class="number">18</span>];</span><br><span class="line">			next.z = temp.z + mv[i][<span class="number">19</span>];</span><br><span class="line">            <span class="keyword">if</span> (judge(next.z,next.x,next.y))</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            dis[next.z][next.x][next.y] = dis[temp.z][temp.x][temp.y] + <span class="number">1</span>;</span><br><span class="line">            vis[next.z][next.x][next.y] = <span class="number">1</span>;</span><br><span class="line">            q.push(next);</span><br><span class="line">            <span class="keyword">if</span> (next.x == ex&amp;&amp;next.y == ey&amp;&amp;next.z == ez)</span><br><span class="line">               &#123;</span><br><span class="line">                <span class="keyword">return</span> dis[ez][ex][ey];</span><br><span class="line">               &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="comment">//memset(vis, 0, sizeof(vis));</span></span><br><span class="line">	<span class="comment">//memset(dis, 0, sizeof(dis));</span></span><br><span class="line">	<span class="keyword">while</span> (<span class="built_in">scanf</span>(<span class="string">"%d%d%d"</span>, &amp;l, &amp;r, &amp;c) != EOF &amp;&amp; (l || r || c))</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; l; i++)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; r; j++)</span><br><span class="line">			&#123;</span><br><span class="line">				<span class="keyword">for</span> (<span class="keyword">int</span> k = <span class="number">0</span>; k &lt; c; k++)</span><br><span class="line">				&#123;</span><br><span class="line">					<span class="built_in">cin</span> &gt;&gt; mp[i][j][k];</span><br><span class="line">					<span class="keyword">if</span> (mp[i][j][k] == <span class="string">'S'</span>)</span><br><span class="line">					&#123;</span><br><span class="line">						sz = i;</span><br><span class="line">						sx = j;</span><br><span class="line">						sy = k;</span><br><span class="line">					&#125;</span><br><span class="line">					<span class="keyword">else</span> <span class="keyword">if</span> (mp[i][j][k] == <span class="string">'E'</span>)</span><br><span class="line">					&#123;</span><br><span class="line">						ez = i;</span><br><span class="line">						ex = j;</span><br><span class="line">						ey = k;</span><br><span class="line">					&#125;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">        <span class="built_in">memset</span>(vis, <span class="number">0</span>, <span class="keyword">sizeof</span>(vis));</span><br><span class="line">	    <span class="built_in">memset</span>(dis, <span class="number">0</span>, <span class="keyword">sizeof</span>(dis));</span><br><span class="line">		<span class="keyword">if</span> (bfs()==<span class="number">0</span>)</span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">"Trapped!\n"</span>);</span><br><span class="line">		<span class="keyword">else</span></span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">"Escaped in %d minute(s).\n"</span>, dis[ez][ex][ey]);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong>$problem C$. Catch the cow</strong><br>一个点进入队列不同于一个节点（其实也差不多 爆了$1$次$RE$…</p>
+<p><strong>$problem E$. Find The Multiple</strong><br>给定一个数$n$，求用$0,1$组成的十进制数$m$，$m$将$n$整除<br>双口$BFS$+同余模定理</p>
+<p><strong>$problem F$.Prime Path</strong><br>数位$BFS$,四位数转化为在四维空间上的搜索<br>只有素数进行搜索 分离数位对每一位进行搜索</p>
+<p><strong>$problem G.$Shuffle’m Up</strong><br>模拟水题 用$map…$</p>
+<p><strong>$problem I.Fire Game$</strong><br>两点$BFS$，求双搜最优解</p>
+<p><strong>$problem K$. 迷宫问题</strong><br>$BFS$和$DFS$好像都可以（好像是数据不强没有卡掉$DFS$ 加个标志记录路径</p>
+<p><strong>$problem L$.oil deposits</strong><br>用$DFS$判断连通块 往八个方向进行搜索</p>
+<p><strong>$problem M$.非常可乐</strong><br>解法$0$.数论知识 （其实我现在也还不懂<br>先咕在这 参考一篇<a href="https://blog.csdn.net/v5zsq/article/details/52097459-" target="_blank" rel="noopener">blog</a><br>解法$1$.$BFS$<br>有明确的初始状态和结束状态，每次操作有$6$种情况…慢慢写</p>
+<p><strong>$problem N.$ Find a way</strong><br>从两个点开始$BFS$,记录遇到每个$KFC$的步数，暴力枚举出最短时间<br>（坑点在于他两可以在一个$KFC$相遇再去另外一个$KFC$吃鸡？<br>咱也不知道 咱也不敢问</p>
+<p>以上</p>
+
+  </article>
+  <aside class="table-content" id="site-toc">
+  <div class="table-content-title">
+    <i class="fa fa-arrow-right fa-lg" id="site-toc-hide-btn"></i>
+    <span>目录</span>
+  </div>
+  <div class="table-content-main">
+    
+  </div>
+</aside>
+  
+    <aside class="passage-copyright">
+      <div>本文作者: paradise</div>
+      
+        <div>
+          原文链接: 
+          <a href target="_blank">https://zja0811.github.io/2019/05/14/kuangbin专题刷题笔记1/</a>
+        </div>
+      
+      <div>
+        版权声明: 本博客所有文章除特别声明外, 均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议. 转载请注明出处!
+      </div>
+    </aside>
+  
+  
+</div>
+
+    </main>
+    
+      
+<div class="site-comment-contanier" data-plateform="leancloud">
+  
+    <p id="site-comment-info">
+      <i class="fa fa-spinner fa-spin"></i> 评论加载中
+    </p>
+    <div id="site-comment"></div>
+  
+</div>
+    
+    <div class="site-footer-wrapper">
+  <footer class="site-footer">
+    
+    <div class="site-footer-info">
+      <i class="fa fa-clock-o"></i> 本站已稳定运行<span id="site-time"></span>
+    </div>
+    
+      <div class="site-footer-info">
+        <i class="fa fa-paw"></i> 您是本站第 <span id="site-count"></span> 位访客
+      </div>
+    
+    
+      <div class="site-footer-info">
+        <i class="fa fa-at"></i> Email: 1246785974@qq.com
+      </div>
+    
+    <div class="site-footer-info">
+      <i class="fa fa-copyright"></i> 
+      2019 <a href="https://github.com/dongyuanxin/theme-ad/" target="_blank">Theme-AD</a>.
+      Created by <a href="https://godbmw.com/" target="_blank">GodBMW</a>.
+      All rights reserved.
+    </div>
+  </footer>
+</div>
+    <div id="site-layer" style="display:none;">
+  <div class="site-layer-content">
+    <div class="site-layer-header">
+      <span class="site-layer-header-title" id="site-layer-title"></span>
+      <i class="fa fa-close" id="site-layer-close"></i>
+    </div>
+    <div class="site-layer-body" id="site-layer-container">
+      <div class="site-layer-input" id="site-layer-search" style="display: none;">
+        <input type="text">
+        <i class="fa fa-search"></i>
+      </div>
+      
+        <div class="site-layer-reward" id="site-layer-reward" style="display: none;">
+          
+            <div>
+              <img src="/images/wechat.png" alt="WeChat">
+              
+                <p>WeChat</p>
+              
+            </div>
+          
+            <div>
+              <img src="/images/alipay.png" alt="AliPay">
+              
+                <p>AliPay</p>
+              
+            </div>
+          
+        </div>
+      
+      <div id="site-layer-welcome" style="display:none;"></div>
+    </div>
+  </div>
+</div>
+    
+
+<div class="bottom-bar">
+  <div class="bottom-bar-left">
+    <a href="/2019/05/18/疯狂删朋友圈相关/" data-enable="true">
+      <i class="fa fa-arrow-left"></i>
+    </a>
+    <a href="/2019/05/14/人生总结相关/" data-enable="true">
+      <i class="fa fa-arrow-right"></i>
+    </a>
+  </div>
+  <div class="bottom-bar-right">
+    <a href="javascript:void(0);" data-enable="true" id="site-toc-show-btn">
+      <i class="fa fa-bars"></i>
+    </a>
+    
+      <a href="#site-comment" data-enable="true">
+        <i class="fa fa-commenting"></i>
+      </a>
+    
+    <a href="javascript:void(0);" id="site-toggle-share-btn">
+      <i class="fa fa-share-alt"></i>
+    </a>
+    
+      <a href="javascript:void(0);" id="site-reward">
+        <i class="fa fa-thumbs-up"></i>
+      </a>
+    
+    <a href="javascript:void(0);" id="back-top-btn">
+      <i class="fa fa-chevron-up"></i>
+    </a>
+  </div>
+</div>
+    <div id="share-btn">
+  
+    <a id="share-btn-twitter" href="javascript:void(0);" target="_blank">
+      <i class="fa fa-twitter"></i>
+    </a>
+  
+  
+    <a id="share-btn-facebook" href="javascript:void(0);" target="_blank">
+      <i class="fa fa-facebook"></i>
+    </a>
+  
+  
+    <a id="share-btn-weibo" href="javascript:void(0);" target="_blank">
+      <i class="fa fa-weibo"></i>
+    </a>
+  
+  
+    <a id="share-btn-qq" href="javascript:void(0);" target="_blank">
+      <i class="fa fa-qq"></i>
+    </a>
+  
+  
+    <a id="share-btn-wechat" href="javascript:void(0);" target="_blank">
+      <i class="fa fa-wechat"></i>
+    </a>
+  
+</div>
+    
+
+
+
+
+
+    
+  </body>
+</html>
