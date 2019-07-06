@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html>
+  
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  <meta name="author" content="paradise_">
+  
+  
+  <title>cpp从入门到入土 | Hexo</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta name="keywords" content="Hexo, Theme-AD">
+  
+
+  
+  <meta name="description" content="谢望凌">
+
+  
+
+  
+    <script src="//cdn.jsdelivr.net/npm/leancloud-storage@3.11.1/dist/av-min.js" async></script>
+  
+
+  
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+  
+
+  
+    <script src="//unpkg.com/valine/dist/Valine.min.js" async></script>
+  
+
+  
+
+  <script>
+  // theme-ad's config script
+  // it can be used in every script
+  
+  window.AD_CONFIG = {
+    leancloud: {"appid":"Hyq9wkH495DgNHWhDQCOfQSp-gzGzoHsz","appkey":"WaR7nrzhliHj9aVwdQzkdlGd","comment":true,"count":true},
+    welcome: {"enable":false,"interval":30},
+    start_time: "2019-4-26",
+    passwords: ["efe07af7441da2b69c4a41e42e73be4db47f66010a56900788a458354a7373ec", ],
+    is_post: true,
+    lock: false,
+    author: "paradise_",
+    share: {"twitter":true,"facebook":true,"weibo":true,"qq":true,"wechat":true},
+    mathjax: true,
+    page_type: "",
+    root: "/"
+  };
+</script>
+
+  <script src="/vendor/sha256.min.js"></script>
+<script src="/js/auth.js"></script>
+<script src="/js/index.js"></script>
+<script src="/vendor/qrcode.min.js"></script>
+
+  
+    <link rel="icon" href="/images/favicon.ico">
+    <link rel="apple-touch-icon" href="/images/touch-icon.png">
+  
+
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="/css/index.css">
+<link rel="stylesheet" href="/styles/components/highlight/highlight.css">
+
+  
+</head>
+  <body>
+    <header class="site-header">
+  <div class="site-header-brand">
+    
+      <span class="site-header-brand-title">
+        <a href="/">等到你</a>
+      </span>
+    
+    
+      <span class="site-header-brand-motto"> | OUCer</span>
+    
+  </div>
+  <div class="site-header-right">
+    <nav class="site-header-navigation">
+      
+        <a href="/" target="_self">首页</a>
+      
+        <a href="/archives/" target="_self">归档</a>
+      
+        <a href="/tags/" target="_self">标签</a>
+      
+        <a href="/categories/" target="_self">分类</a>
+      
+        <a href="/friends/" target="_self">友链</a>
+      
+        <a href="/about/" target="_self">关于</a>
+      
+    </nav>
+    <div class="site-header-btn">
+      
+        <a href="https://github.com/ZJA0811/" target="_blank" id="site-github">
+          <i class="fa fa-github-alt"></i>
+        </a>
+      
+      <a href="javascript:void(0);" id="site-search">
+        <i class="fa fa-search"></i>
+      </a>
+      <a href="javascript:void(0);" id="site-nav-btn">
+        <i class="fa fa-ellipsis-v"></i>
+      </a>
+    </div>
+  </div>
+</header>
+<nav class="table-content" id="site-nav">
+  <div class="table-content-title">
+    <span>导航</span>
+  </div>
+  <div class="table-content-main">
+    <ol class="toc">
+      
+        <li class="toc-item">
+          <a href="/" target="_self">
+            首页
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="/archives/" target="_self">
+            归档
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="/tags/" target="_self">
+            标签
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="/categories/" target="_self">
+            分类
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="/friends/" target="_self">
+            友链
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="/about/" target="_self">
+            关于
+          </a>
+        </li>
+      
+    </ol>
+  </div>
+</nav>
+<div id="site-process"></div>
+    <main>
+      
+  <div class="passage">
+  <div class="passage-meta">
+    <span>
+      <i class="fa fa-calendar"></i>2019-07-06
+    </span>
+    
+    
+      <span>
+        | <i class="fa fa-unlock-alt"></i>UNLOCK
+      </span>
+    
+  </div>
+  <h1 class="passage-title">
+    cpp从入门到入土
+  </h1>
+  
+  <article class="passage-article">
+    <p>#C++ 从入门到入土</p>
+<p>忘记把复习的时候笔记发上来了…<br>$0.$有关堆栈<br>函数里是栈空间 全局是堆空间<br>函数栈进行多次复制 堆空间比较富裕基本不复制<br>$1.$有关位运算<br>对数据按二进制位进行操作<br>0.<strong>按位与</strong>(&amp;)<br>1.<strong>按位或</strong>(|)<br>将两个操作数对应的每一位分别进行逻辑或操作<br>2.<strong>按位异或</strong>(^)<br>具体运算规则：若对应位相同，则该位运算结果位0;若对应位不同,则该位的运算结果为1（好像在博弈论里面见过…由于本人太菜 之后才会深入学习博弈论方面的知识<br>3.<strong>按位取反</strong>(~)<br>单目运算符,对一个二进制数的每一位取反<br>4.<strong>移位</strong><br>(常用于加速运算<br> $&lt;&lt;:$左移 低位补0 移出的高位舍弃<br> $&gt;&gt;:$右移 移出的低位舍弃 无符号数高位补0,有符号数高位补符号位或补0<br>$2.$类<br>将抽象得到的<strong>数据</strong>和<strong>行为</strong>(或功能)结合,形成一个有机的整体,也就是将数据和操作数据的函数代码进行有机的结合，形成”类”.<br>0.数据成员一般为<strong>私</strong>有成员<br>1.函数成员一般为<strong>公</strong>有成员<br>2.C++程序初始化<br><strong>构造函数</strong>:在对象被创建时利用特定的值构造对象,将对象初始化为一个特定的状态<br>3.C++程序清理工作<br><strong>析构函数</strong>:完全对象被删除前的一些清理工作<br>4.编译器能自动生成:<strong>构造函数 拷贝函数 赋值函数 析构函数</strong><br>5.每一个类的成员函数都包含一个指向本类的指针 指针名为$this$<br>在C++中，下面<strong>三</strong>种对象需要调用拷贝构造函数（有时也称“复制构造函数”）：<br>1) 一个对象作为函数参数，以值传递的方式传入函数体；<br>2) 一个对象作为函数返回值，以值传递的方式从函数返回；<br>3) 一个对象用于给另外一个对象进行初始化（常称为赋值初始化）；<br>$3.$匿名函数<br>$Lambda$表达式<br>语法形式:<br><strong>[函数对象参数] (操作符重载函数参数) mutable或exception声明 -&gt;返回值类型 {函数体}</strong><br>这部分太多了…感觉也不是很重要<br>然后我只是看懂了别人的$blog$<br><a href="https://www.cnblogs.com/coderland/p/5902903.html" target="_blank" rel="noopener">传送门</a><br>这里只写一个例子 代表我对它的理解<br><strong>匿名函数 从入门到入土</strong><br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">long</span> <span class="keyword">long</span> <span class="keyword">int</span> ikun =<span class="number">12345</span>;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">cxk</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">	<span class="keyword">int</span> basketball;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	cxk();</span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">music</span><span class="params">()</span></span>;</span><br><span class="line">&#125;;</span><br><span class="line">cxk::cxk()</span><br><span class="line">&#123;</span><br><span class="line">	basketball = <span class="number">12345</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">void</span> cxk::music()</span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">int</span> rap = <span class="number">12345</span>;</span><br><span class="line">    <span class="keyword">auto</span> kun = [<span class="keyword">this</span>]()&#123;<span class="built_in">cout</span> &lt;&lt; <span class="keyword">this</span>-&gt;basketball &lt;&lt; rap &lt;&lt; <span class="built_in">endl</span>;&#125;;</span><br><span class="line">	kun();</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    cxk nmsl;</span><br><span class="line">    nmsl.music();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>$4.$数据共享与保护<br>静态生存期:在函数内部声明静态生存期对象，要冠以关键字$static$<br>动态生存期:块作用域中声明的，没有用$static$修饰的对象</p>
+<p><strong>友元</strong>是C++提供的一种破坏数据封装和数据隐藏的机制。<br>若一个类为另一个类的友元，则此类的所有成员都能访问对方类的私有成员。</p>
+<p>浅拷贝<br>实现对象间数据元素的一一对应复制。<br>深拷贝<br>当被复制的对象数据成员是指针类型时，不是复制该指针成员本身，而是将指针所指的对象进行复制。<br>$5.$继承与派生<br>$A.$公有继承(public)<br>基类的public和protected成员的访问属性在派生类中保持不变，但基类的private成员不可直接访问。<br>派生类中的成员函数可以直接访问基类中的public和protected成员，但不能直接访问基类的private成员。<br>通过派生类的对象只能访问基类的public成员。<br>$B.$私有继承(private)<br>基类的public和protected成员都以private身份出现在派生类中，但基类的private成员不可直接访问。<br>派生类中的成员函数可以直接访问基类中的public和protected成员，但不能直接访问基类的private成员。<br>通过派生类的对象不能直接访问基类中的任何成员。<br>$C.$保护继承(protected)<br>基类的public和protected成员都以protected身份出现在派生类中，但基类的private成员不可直接访问。<br>派生类中的成员函数可以直接访问基类中的public和protected成员，但不能直接访问基类的private成员。<br>通过派生类的对象不能直接访问基类中的任何成员<br><strong>虚基类</strong><br>虚基类的引入：<br>用于有共同基类的场合<br>声明：<br>以virtual修饰说明基类：class B1:virtual public B<br>作用：<br>主要用来解决多继承时可能发生的对同一基类继承多次而产生的二义性问题.<br>为最远的派生类提供唯一的基类成员，而不重复产生多次拷贝<br>注意：<br>在第一级继承时就要将共同基类设计为虚基类。<br>$6.$<strong>多态</strong><br>运算符重载:<br>1.重载为类成员函数<br>2.重载为友元函数<br>经重载的运算符,其操作数至少有一个是自定义类型<br>抽象类<br>抽象类只能作为基类使用<br>不能声明抽象类的对象<br>构造函数不能是虚函数,析构函数可以是虚函数<br>$7.$异常处理<br>C++程序将可能发生异常的程序块放在<strong>try块</strong>中,紧跟其后可放置若干对应的 <strong>catch子句</strong>,在前面所说的块中或块所调用的函数中应该有对应的<strong>throw表达式</strong> ,由它在不正常时抛出异常,如与某一条<strong>catch子句</strong>类型相匹配,则执行该语句。该语句执行完后,如未退出程序,则<strong>执行后面一条子句</strong>.如没有匹配的语句,则交C++标准库中的<strong>terminate()</strong>处理。</p>
+
+  </article>
+  <aside class="table-content" id="site-toc">
+  <div class="table-content-title">
+    <i class="fa fa-arrow-right fa-lg" id="site-toc-hide-btn"></i>
+    <span>目录</span>
+  </div>
+  <div class="table-content-main">
+    
+  </div>
+</aside>
+  
+    <aside class="passage-copyright">
+      <div>本文作者: paradise</div>
+      
+        <div>
+          原文链接: 
+          <a href target="_blank">https://zja0811.github.io/2019/07/06/cpp从入门到入土/</a>
+        </div>
+      
+      <div>
+        版权声明: 本博客所有文章除特别声明外, 均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议. 转载请注明出处!
+      </div>
+    </aside>
+  
+  
+</div>
+
+    </main>
+    
+      
+<div class="site-comment-contanier" data-plateform="leancloud">
+  
+    <p id="site-comment-info">
+      <i class="fa fa-spinner fa-spin"></i> 评论加载中
+    </p>
+    <div id="site-comment"></div>
+  
+</div>
+    
+    <div class="site-footer-wrapper">
+  <footer class="site-footer">
+    
+    <div class="site-footer-info">
+      <i class="fa fa-clock-o"></i> 本站已稳定运行<span id="site-time"></span>
+    </div>
+    
+      <div class="site-footer-info">
+        <i class="fa fa-paw"></i> 您是本站第 <span id="site-count"></span> 位访客
+      </div>
+    
+    
+      <div class="site-footer-info">
+        <i class="fa fa-at"></i> Email: 1246785974@qq.com
+      </div>
+    
+    <div class="site-footer-info">
+      <i class="fa fa-copyright"></i> 
+      2019 <a href="https://github.com/dongyuanxin/theme-ad/" target="_blank">Theme-AD</a>.
+      Created by <a href="https://godbmw.com/" target="_blank">GodBMW</a>.
+      All rights reserved.
+    </div>
+  </footer>
+</div>
+    <div id="site-layer" style="display:none;">
+  <div class="site-layer-content">
+    <div class="site-layer-header">
+      <span class="site-layer-header-title" id="site-layer-title"></span>
+      <i class="fa fa-close" id="site-layer-close"></i>
+    </div>
+    <div class="site-layer-body" id="site-layer-container">
+      <div class="site-layer-input" id="site-layer-search" style="display: none;">
+        <input type="text">
+        <i class="fa fa-search"></i>
+      </div>
+      
+        <div class="site-layer-reward" id="site-layer-reward" style="display: none;">
+          
+            <div>
+              <img src="/images/wechat.png" alt="WeChat">
+              
+                <p>WeChat</p>
+              
+            </div>
+          
+            <div>
+              <img src="/images/alipay.png" alt="AliPay">
+              
+                <p>AliPay</p>
+              
+            </div>
+          
+        </div>
+      
+      <div id="site-layer-welcome" style="display:none;"></div>
+    </div>
+  </div>
+</div>
+    
+
+<div class="bottom-bar">
+  <div class="bottom-bar-left">
+    <a href="javascript:void(0);" data-enable="false">
+      <i class="fa fa-arrow-left"></i>
+    </a>
+    <a href="/2019/07/05/腐烂的日子和糟糕的我/" data-enable="true">
+      <i class="fa fa-arrow-right"></i>
+    </a>
+  </div>
+  <div class="bottom-bar-right">
+    <a href="javascript:void(0);" data-enable="true" id="site-toc-show-btn">
+      <i class="fa fa-bars"></i>
+    </a>
+    
+      <a href="#site-comment" data-enable="true">
+        <i class="fa fa-commenting"></i>
+      </a>
+    
+    <a href="javascript:void(0);" id="site-toggle-share-btn">
+      <i class="fa fa-share-alt"></i>
+    </a>
+    
+      <a href="javascript:void(0);" id="site-reward">
+        <i class="fa fa-thumbs-up"></i>
+      </a>
+    
+    <a href="javascript:void(0);" id="back-top-btn">
+      <i class="fa fa-chevron-up"></i>
+    </a>
+  </div>
+</div>
+    <div id="share-btn">
+  
+    <a id="share-btn-twitter" href="javascript:void(0);" target="_blank">
+      <i class="fa fa-twitter"></i>
+    </a>
+  
+  
+    <a id="share-btn-facebook" href="javascript:void(0);" target="_blank">
+      <i class="fa fa-facebook"></i>
+    </a>
+  
+  
+    <a id="share-btn-weibo" href="javascript:void(0);" target="_blank">
+      <i class="fa fa-weibo"></i>
+    </a>
+  
+  
+    <a id="share-btn-qq" href="javascript:void(0);" target="_blank">
+      <i class="fa fa-qq"></i>
+    </a>
+  
+  
+    <a id="share-btn-wechat" href="javascript:void(0);" target="_blank">
+      <i class="fa fa-wechat"></i>
+    </a>
+  
+</div>
+    
+
+
+
+
+
+    
+  </body>
+</html>
