@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html>
+  
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  <meta name="author" content="paradise_">
+  
+  
+  <title>BZOJ-2287 | Hexo</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta name="keywords" content="Hexo, Theme-AD">
+  
+
+  
+  <meta name="description" content="谢望凌">
+
+  
+
+  
+    <script src="//cdn.jsdelivr.net/npm/leancloud-storage@3.11.1/dist/av-min.js" async></script>
+  
+
+  
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+  
+
+  
+    <script src="//unpkg.com/valine/dist/Valine.min.js" async></script>
+  
+
+  
+
+  <script>
+  // theme-ad's config script
+  // it can be used in every script
+  
+  window.AD_CONFIG = {
+    leancloud: {"appid":"Hyq9wkH495DgNHWhDQCOfQSp-gzGzoHsz","appkey":"WaR7nrzhliHj9aVwdQzkdlGd","comment":true,"count":true},
+    welcome: {"enable":false,"interval":30},
+    start_time: "2019-4-26",
+    passwords: ["efe07af7441da2b69c4a41e42e73be4db47f66010a56900788a458354a7373ec", ],
+    is_post: true,
+    lock: false,
+    author: "paradise_",
+    share: {"twitter":true,"facebook":true,"weibo":true,"qq":true,"wechat":true},
+    mathjax: true,
+    page_type: "",
+    root: "/"
+  };
+</script>
+
+  <script src="/vendor/sha256.min.js"></script>
+<script src="/js/auth.js"></script>
+<script src="/js/index.js"></script>
+<script src="/vendor/qrcode.min.js"></script>
+
+  
+    <link rel="icon" href="/images/favicon.ico">
+    <link rel="apple-touch-icon" href="/images/touch-icon.png">
+  
+
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="/css/index.css">
+<link rel="stylesheet" href="/styles/components/highlight/highlight.css">
+
+  
+</head>
+  <body>
+    <header class="site-header">
+  <div class="site-header-brand">
+    
+      <span class="site-header-brand-title">
+        <a href="/">等到你</a>
+      </span>
+    
+    
+      <span class="site-header-brand-motto"> | OUCer</span>
+    
+  </div>
+  <div class="site-header-right">
+    <nav class="site-header-navigation">
+      
+        <a href="/" target="_self">首页</a>
+      
+        <a href="/archives/" target="_self">归档</a>
+      
+        <a href="/tags/" target="_self">标签</a>
+      
+        <a href="/categories/" target="_self">分类</a>
+      
+        <a href="/friends/" target="_self">友链</a>
+      
+        <a href="/about/" target="_self">关于</a>
+      
+    </nav>
+    <div class="site-header-btn">
+      
+        <a href="https://github.com/ZJA0811/" target="_blank" id="site-github">
+          <i class="fa fa-github-alt"></i>
+        </a>
+      
+      <a href="javascript:void(0);" id="site-search">
+        <i class="fa fa-search"></i>
+      </a>
+      <a href="javascript:void(0);" id="site-nav-btn">
+        <i class="fa fa-ellipsis-v"></i>
+      </a>
+    </div>
+  </div>
+</header>
+<nav class="table-content" id="site-nav">
+  <div class="table-content-title">
+    <span>导航</span>
+  </div>
+  <div class="table-content-main">
+    <ol class="toc">
+      
+        <li class="toc-item">
+          <a href="/" target="_self">
+            首页
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="/archives/" target="_self">
+            归档
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="/tags/" target="_self">
+            标签
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="/categories/" target="_self">
+            分类
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="/friends/" target="_self">
+            友链
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="/about/" target="_self">
+            关于
+          </a>
+        </li>
+      
+    </ol>
+  </div>
+</nav>
+<div id="site-process"></div>
+    <main>
+      
+  <div class="passage">
+  <div class="passage-meta">
+    <span>
+      <i class="fa fa-calendar"></i>2019-07-24
+    </span>
+    
+    
+      <span>
+        | <i class="fa fa-unlock-alt"></i>UNLOCK
+      </span>
+    
+  </div>
+  <h1 class="passage-title">
+    BZOJ-2287
+  </h1>
+  
+  <article class="passage-article">
+    <p>#BZOJ-2287</p>
+<p>$Time Limit: 10 Sec\qquad\qquad Memory Limit: 128 MB$<br><strong>Description</strong><br>$ftiasch$有$N$个物品,体积分别是W<sub>1</sub>,W<sub>2</sub>,W<sub>N</sub>.由于她的疏忽,第$i$个物品丢失了.“要使用剩下的$N–1$物品装满容积为$x$的背包,有几种方法呢?”—这是经典的问题了.她把答案记为$Count(i,x)$,想要得到所有$1&lt;=i&lt;=N,1&lt;=x&lt;=M$的$Count(i,x)$表格。<br><strong>Input</strong><br>第$1$行:两个整数$N(1≤N≤2×10^3)和M(1≤M≤2×10^3)$,物品的数量和最大的容积.<br>第$2$行:$N$个整数W<sub>1</sub>,W<sub>2</sub>,W<sub>N</sub>物品的体积。<br><strong>Output</strong><br>一个$N×M$的矩阵,$Count(i,x)$的末位数字。<br><strong>Sample Input</strong></p>
+<blockquote>
+<p>3 2<br>1 1 2</p>
+</blockquote>
+<p><strong>Sample Output</strong></p>
+<blockquote>
+<p>11<br>11<br>21</p>
+</blockquote>
+<p>$HINT$<br>如果物品$3$丢失的话，只有一种方法装满容量是2的背包,即选择物品$1$和物品$2$<br><img src="https://cdn.luogu.org/upload/pic/13426.png" alt></p>
+<p>一开始看描述没看懂==<br>啥表格？$dbq$俺不会<br>$output$才说输出末位数字<br>看完描述之后就知道是$DP$-背包问题的变形题<br>想了一会正面做之后发现自己傻逼了<br>这好像是脸上写着容斥<br>设$dp[i][j]$表示前$i$个物品,装满容积为$j$的背包的方案数.<br>然后这个可以用$O(n^2)的DP$做出来<br>$ans[i][j]$表示不选第$i$个物品，装满容积为j的背包的方案数.<br>我们接着考虑怎么求出$n$个物品中第$i$个必选体积恰好为$j$的方案数<br>我们会很奇妙的发现<br>对于$ans[i][j]$<br>$ans[i][j−w[i]]$不就是$n$个物品中第$i$个必选体积恰好为$j$ 的方案数了吗!(拍桌)<br>如果$j&lt;n,则ans[i][j]=dp[n][j];$<br>如果$j≥n,则ans[i][j]=dp[n][j]-ans[i][j-w[i]]$.<br>然后就开始快乐的写代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;bits/stdc++.h&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">const int maxn=2e3+5;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    int n,m;</span><br><span class="line">    int w[maxn];</span><br><span class="line">    int dp[maxn][maxn];</span><br><span class="line">    int ans[maxn][maxn];</span><br><span class="line">	   scanf(&quot;%d%d&quot;,&amp;n,&amp;m);</span><br><span class="line">	for(int i=1;i&lt;=n;i++)</span><br><span class="line">        scanf(&quot;%d&quot;,&amp;w[i]);</span><br><span class="line">        dp[0][0]=1;</span><br><span class="line">	for(int i=1;i&lt;=n;i++)</span><br><span class="line">	    for(int j=0;j&lt;=m;j++)</span><br><span class="line">	     &#123;</span><br><span class="line">	         dp[i][j]=(dp[i][j]+dp[i-1][j])%10;</span><br><span class="line">            if(j&gt;=w[i])</span><br><span class="line">             dp[i][j]=(dp[i][j]+dp[i-1][j-w[i]])%10;</span><br><span class="line">	   &#125;</span><br><span class="line"></span><br><span class="line">	for(int i=1;i&lt;=n;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        for(int j=0;j&lt;=m;j++)</span><br><span class="line">        &#123;</span><br><span class="line">            if(j&lt;w[i])</span><br><span class="line">               ans[i][j]=dp[n][j];</span><br><span class="line">            else</span><br><span class="line">               ans[i][j]=(dp[n][j]-ans[i][j-w[i]]+10)%10;</span><br><span class="line">            if(j&gt;0)</span><br><span class="line">               printf(&quot;%d&quot;,ans[i][j]);</span><br><span class="line">        &#125;</span><br><span class="line">		printf(&quot;\n&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>然后居然就这样朴素的写法没被卡空间？<br>$dbq$是我想太多了<br>用滚动数组可以再优化掉一维的空间<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;bits/stdc++.h&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">const int maxn=2e3+5;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    int n,m;</span><br><span class="line">    int w[maxn];</span><br><span class="line">    int dp[maxn];</span><br><span class="line">    int ans[maxn];</span><br><span class="line">	   scanf(&quot;%d%d&quot;,&amp;n,&amp;m);</span><br><span class="line">	for(int i=1;i&lt;=n;i++)</span><br><span class="line">        scanf(&quot;%d&quot;,&amp;w[i]);</span><br><span class="line">        dp[0]=1;</span><br><span class="line">	for(int i=1;i&lt;=n;i++)</span><br><span class="line">	    for(int j=m;j&gt;=w[i];j--)</span><br><span class="line">	     &#123;</span><br><span class="line">             dp[j]=(dp[j]+dp[j-w[i]])%10;</span><br><span class="line">	   &#125;</span><br><span class="line"></span><br><span class="line">	for(int i=1;i&lt;=n;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        for(int j=0;j&lt;=m;j++)</span><br><span class="line">        &#123;</span><br><span class="line">            if(j&lt;w[i])</span><br><span class="line">               ans[j]=dp[j];</span><br><span class="line">            else</span><br><span class="line">               ans[j]=(dp[j]-ans[j-w[i]]+10)%10;</span><br><span class="line">            if(j&gt;0)</span><br><span class="line">               printf(&quot;%d&quot;,ans[j]);</span><br><span class="line">        &#125;</span><br><span class="line">		printf(&quot;\n&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>有点晚==我直接溜溜球</p>
+
+  </article>
+  <aside class="table-content" id="site-toc">
+  <div class="table-content-title">
+    <i class="fa fa-arrow-right fa-lg" id="site-toc-hide-btn"></i>
+    <span>目录</span>
+  </div>
+  <div class="table-content-main">
+    
+  </div>
+</aside>
+  
+    <aside class="passage-copyright">
+      <div>本文作者: paradise</div>
+      
+        <div>
+          原文链接: 
+          <a href target="_blank">https://zja0811.github.io/2019/07/24/BZOJ-2287/</a>
+        </div>
+      
+      <div>
+        版权声明: 本博客所有文章除特别声明外, 均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议. 转载请注明出处!
+      </div>
+    </aside>
+  
+  
+</div>
+
+    </main>
+    
+      
+<div class="site-comment-contanier" data-plateform="leancloud">
+  
+    <p id="site-comment-info">
+      <i class="fa fa-spinner fa-spin"></i> 评论加载中
+    </p>
+    <div id="site-comment"></div>
+  
+</div>
+    
+    <div class="site-footer-wrapper">
+  <footer class="site-footer">
+    
+    <div class="site-footer-info">
+      <i class="fa fa-clock-o"></i> 本站已稳定运行<span id="site-time"></span>
+    </div>
+    
+      <div class="site-footer-info">
+        <i class="fa fa-paw"></i> 您是本站第 <span id="site-count"></span> 位访客
+      </div>
+    
+    
+      <div class="site-footer-info">
+        <i class="fa fa-at"></i> Email: 1246785974@qq.com
+      </div>
+    
+    <div class="site-footer-info">
+      <i class="fa fa-copyright"></i> 
+      2019 <a href="https://github.com/dongyuanxin/theme-ad/" target="_blank">Theme-AD</a>.
+      Created by <a href="https://godbmw.com/" target="_blank">GodBMW</a>.
+      All rights reserved.
+    </div>
+  </footer>
+</div>
+    <div id="site-layer" style="display:none;">
+  <div class="site-layer-content">
+    <div class="site-layer-header">
+      <span class="site-layer-header-title" id="site-layer-title"></span>
+      <i class="fa fa-close" id="site-layer-close"></i>
+    </div>
+    <div class="site-layer-body" id="site-layer-container">
+      <div class="site-layer-input" id="site-layer-search" style="display: none;">
+        <input type="text">
+        <i class="fa fa-search"></i>
+      </div>
+      
+        <div class="site-layer-reward" id="site-layer-reward" style="display: none;">
+          
+            <div>
+              <img src="/images/wechat.png" alt="WeChat">
+              
+                <p>WeChat</p>
+              
+            </div>
+          
+            <div>
+              <img src="/images/alipay.png" alt="AliPay">
+              
+                <p>AliPay</p>
+              
+            </div>
+          
+        </div>
+      
+      <div id="site-layer-welcome" style="display:none;"></div>
+    </div>
+  </div>
+</div>
+    
+
+<div class="bottom-bar">
+  <div class="bottom-bar-left">
+    <a href="/2019/07/24/BZPJ-2287/" data-enable="true">
+      <i class="fa fa-arrow-left"></i>
+    </a>
+    <a href="/2019/07/06/cpp从入门到入土/" data-enable="true">
+      <i class="fa fa-arrow-right"></i>
+    </a>
+  </div>
+  <div class="bottom-bar-right">
+    <a href="javascript:void(0);" data-enable="true" id="site-toc-show-btn">
+      <i class="fa fa-bars"></i>
+    </a>
+    
+      <a href="#site-comment" data-enable="true">
+        <i class="fa fa-commenting"></i>
+      </a>
+    
+    <a href="javascript:void(0);" id="site-toggle-share-btn">
+      <i class="fa fa-share-alt"></i>
+    </a>
+    
+      <a href="javascript:void(0);" id="site-reward">
+        <i class="fa fa-thumbs-up"></i>
+      </a>
+    
+    <a href="javascript:void(0);" id="back-top-btn">
+      <i class="fa fa-chevron-up"></i>
+    </a>
+  </div>
+</div>
+    <div id="share-btn">
+  
+    <a id="share-btn-twitter" href="javascript:void(0);" target="_blank">
+      <i class="fa fa-twitter"></i>
+    </a>
+  
+  
+    <a id="share-btn-facebook" href="javascript:void(0);" target="_blank">
+      <i class="fa fa-facebook"></i>
+    </a>
+  
+  
+    <a id="share-btn-weibo" href="javascript:void(0);" target="_blank">
+      <i class="fa fa-weibo"></i>
+    </a>
+  
+  
+    <a id="share-btn-qq" href="javascript:void(0);" target="_blank">
+      <i class="fa fa-qq"></i>
+    </a>
+  
+  
+    <a id="share-btn-wechat" href="javascript:void(0);" target="_blank">
+      <i class="fa fa-wechat"></i>
+    </a>
+  
+</div>
+    
+
+
+
+
+
+    
+  </body>
+</html>
