@@ -6,7 +6,7 @@
   <meta name="author" content="paradise_">
   
   
-  <title>cpp读入优化 | Hexo</title>
+  <title>一则故事 | Hexo</title>
 
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -164,7 +164,7 @@
   <div class="passage">
   <div class="passage-meta">
     <span>
-      <i class="fa fa-calendar"></i>2019-08-02
+      <i class="fa fa-calendar"></i>2019-08-05
     </span>
     
     
@@ -174,16 +174,20 @@
     
   </div>
   <h1 class="passage-title">
-    cpp读入优化
+    一则故事
   </h1>
   
   <article class="passage-article">
-    <h1 id="C-读入优化"><a href="#C-读入优化" class="headerlink" title="C++读入优化"></a>C++读入优化</h1><p>引入:<br>众所周知,$cin$没有$scanf$读入快,$scanf$没有$getchar$读入快</p>
-<p>第$-1$种解决方法：<br>为什么$cin$和$cout$很慢?会导致程序无故超时?<br>在$C++$中,$cin$和$cout$要与$stdio$同步,中间会有一个缓冲,所以导致了$cin$和$cout$比较慢<br>解决方法:在主函数开头加上一句<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ios::sync_with_stdio(false);</span><br></pre></td></tr></table></figure></p>
-<p>这句话关掉了流同步,可以提高$cin$和$cout$和效率<br><del>不过好像还是没有$scanf$和$printf$快</del></p>
-<p>第$0$种解决方法:<br>有些题目是很卡时间的,所以快速读入因此诞生<br>所以平时写的快速读入,一般是指一个一个字符读入再转成数字<br>放上快读模板<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">inline int read()</span><br><span class="line">&#123;</span><br><span class="line">    int x=0,f=1;</span><br><span class="line">    char ch=getchar();</span><br><span class="line">    while(ch&lt;&apos;0&apos;||ch&gt;&apos;9&apos;)</span><br><span class="line">    &#123;</span><br><span class="line">        if(ch==&apos;-&apos;)</span><br><span class="line">            f=-1;</span><br><span class="line">        ch=getchar();</span><br><span class="line">    &#125;</span><br><span class="line">    while(ch&gt;=&apos;0&apos;&amp;&amp;ch&lt;=&apos;9&apos;)</span><br><span class="line">    &#123;</span><br><span class="line">        x=(x&lt;&lt;1)+(x&lt;&lt;3)+(ch^48);</span><br><span class="line">        ch=getchar();</span><br><span class="line">    &#125;</span><br><span class="line">    return x*f;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>重点只有一行==<br>当然快速读入也有不适用的时候,例如输入里包含大量的无用空格<br>这时候老老实实吧==</p>
-<p>第$1$种解决方法:<br>看大佬博客得来的<br>强行读入整个输入文件,存在一个字符串里.接着在这个字符串里利用快速读入转成数字.这样速度会非常快.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;bits/stdc++.h&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">const int N=1&lt;&lt;27;//可以修改，表示输入文件不会超过的长度</span><br><span class="line">char buf[N],*inf=buf;</span><br><span class="line">int read()//这是一个读不进负数的数字读入</span><br><span class="line">&#123;</span><br><span class="line">    int k=0;</span><br><span class="line">    while(!isdigit(*inf))</span><br><span class="line">        ++inf;</span><br><span class="line">    while(isdigit(*inf))</span><br><span class="line">    &#123;</span><br><span class="line">        k=k*10+(*inf-&apos;0&apos;);</span><br><span class="line">        ++inf;</span><br><span class="line">    &#125;</span><br><span class="line">    return k;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    //freopen(***); //开文件必须在fread前面</span><br><span class="line">    fread(buf, 1, N, stdin);//读入整个输入文件</span><br><span class="line">    *****</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+    <p>#一则故事</p>
+<p>$不知道自己是悲是喜$<br>$就这样看着渐渐发白的天空$<br>$搓出了这样一篇文$</p>
+<p>$X$是一个普普通通的高中生.家里算是温饱稍稍偏上的,不好看,没有锁骨.<br>在班里,$X$的成绩大概是名列前茅的,甚至他并不是特别的用功.<br>高中时期,他曾经拥有过很多很多的好朋友.可能在班里人眼里,他是一个阳光上进的人(或许他以前真的是?).<br>大家都愿意把自己的不开心分享给他,和他说一些小秘密.很多时候,他总能知道班里很多人的小秘密.朋友们也愿意找他帮忙.甚至他也帮助了一个好朋友和另一个好朋友.他们现在还在一起.很好<br>高中的生活,总有那么一段无忧无虑的时候,平常的晚自习,能和大家呆在一起,他也非常的开心.高一的时候学了啥…空间几何啥的 反正他不喜欢这个数学老师 然后上课也不怎么听 但是凭借自己是从尖子班里滚出来的 总是有人来问问题<br>她就是其中之一.第一眼见到的时候,并不觉得她很好看.脸很圆,头发也不是很整齐,甚至还戴了一副与面庞极不符合的绿色眼镜.题目不难,$X$很快想到了思路.但显然是错误的.然后一起去办公室问问题.后来有很多时候,他们都会一起探讨问题.<br>女生的成绩开始越来越好,甚至超过了自己,$X$很高兴.女生也开始成为班里的关注.(高中好像就是这样 谁成绩好就看谁…?)在$X$的记忆里,那个时候,他有点喜欢欺负她.偷偷把她的书包藏起来,拿一下她的笔或者笔盒啥的,而她也是真的很迷糊,虽然知道是被谁拿的== 还是找不到<br>时间过的很快,到了高二的时候,$X$已经很肯定自己喜欢那个女生了.虽然她看起来并不是很完美,甚至和小时候的理想型差距很大…她还是 圆圆脸,乱蓬蓬的头发,甚至喜欢走路唱歌然后被小学生骂成神经病?<br>然后在$2016$年$10$月$2$日,$X$表白了.然后非常正常,当然是被拒绝了<br>他非常激动,甚至那个时候他还有些自负.女生的回答很委婉,的确啊,不喜欢就是不喜欢啊 可是那个时候$X$不懂.我也不知道他在做什么 一直承诺 一直保证 一直发誓 好像都不太是?但是被拒绝了 那天晚上 他拉着自己的一个好朋友,终于在街上漫无目的的走了很久<br>从国庆假期回去之后,他们两个之间就不一样了.的确 真真切切的感受到了<br>$X$竭尽全力对她好 向她证明些毫无意义的东西<br>但是终究是回不去了 就这样过完了春节 女生当然是不知道如何面对这样的鬼东西,时而对他好时而对他不好,可能都是不经意的 但是$X$自己给自己加了太多戏<br>女生的成绩下滑了<br>偶尔假期会有聊天.<br>终于有一天,女生说她的目标是南开大学,当时的$X$当然是满腔热血,四处收集南开大学的资料,一想到南开大学的校训就觉得和她非常配,可能当时她也有点激动吧,(口不择言?)就说出了要是大学毕业找不到男朋友就和$X$在一起的话<br>很开心 特别开心 一晚上都没睡着 早晨起来绕着整个城跑,洗了一把冷水脸发现是真的 很幸福<br>朝着南开努力 虽然期间偶尔$X$发作,但是好像缓和了一丝<br>全班都知道了这个八卦<br>她是个脸皮薄的女生 所以<br>中间的事我不太记得了<br>到了高三 整天就是刷题刷题 奋战几十几十天 精彩一辈子什么的口号<br>$X$想过给她一些帮助 纯开始自学之后感觉数学还行…?</p>
+<blockquote>
+<p>如果有人认为数学很难,那是因为他们没有意识到人生是多么复杂</p>
+</blockquote>
+<p>感觉教的很烂 日子就这样一天天走着<br>平时身体很好的$X$ 开始变得越来越敏感<br>从别人的口中说 上一秒眼睛里闪烁的光芒在下一秒就能变成苦涩<br>终于有一天 她的闺蜜说 她可能有一点喜欢她 很高兴 真的很高兴<br>想了一万种方法 去对她好<br>但是很明显她闺蜜说的是错的吖<br>然后敏感的$X$把悲痛转化成生理上的疾病和心理的苦涩<br>回家呆了几天之后就又好了<br>$2018$年$6$月$8$日 下午$17$点 英语考试结束 毕业<br>他飞奔向她的考场 郑重的说了一声’毕业快乐’<br>知道无所回应 便转身离开<br>后来听朋友说起 她也小声说了一句’毕业快乐’之后 还蛮后悔的<br>和所有人一样 大家的高中生活都结束了<br>之后的事发展的很不好 自己的潜意识里<br>把不回应当成是拒绝(并没有错)<br>失去了学习的目标之后 $X$开始变得颓废<br>终日买醉<br>七月 七月<br>被判下死刑的七月 身体终于坚持不住之后 开始吐血 但是居然活下来了<br>期间有位朋友去烦过她 她很生气<br>的确 并不关她什么事 死不死的都是自己的事<br>这么多年的朋友 就这样断了 这会成为$X$心里不可愈合的痛<br>这是他自己 一手造成的!<br>出成绩<br>中国海洋大学 福建医科大学<br>青岛到福州 一个车次 2300公里的想念<br>她终于甩掉了这个惹人烦惹人厌的$X$ 可以开始新的生活<br>他也带着 去了<br>大学生活适应<br>压力越来越大 学业 感情 精神<br>所以$X$越活越小心 忘记了自己<br>$X$对她一直有一种奇怪的感觉 这种感觉在分开之后越来越强烈<br>$X$觉得这种感觉是喜欢<br>于是十七很怕在别人身上也出现这种感觉<br>如果这种感觉是喜欢<br>如果在别人身上也有这种感觉了<br>说明了$X$会同时喜欢两个人<br>那么也意味着以后可能会喜欢更多<br>那么这几年的煎熬又算什么呢<br>$X$不喜欢那样的自己<br>一边是对失去自我的迷茫<br>一边是对遥远的她的想念<br>即想放弃一切<br>又想最后见到她的时候是体面的<br>然后$X$就变成神经病了<br>后来  到了<br>$2019$年$6$月$19$号<br>$X$终于收起了自己的自私 以为自己很伟大的和过去告了个别<br>只是从一个牢笼走向了另一个牢笼<br>然后自己独自面对 记忆力衰退 脑子转不动 幻听<br>这又有什么呢<br>不惧死亡 早已习惯了地狱的样子</p>
+<blockquote>
+<p>课本还是太小了 甚至装不下一个普通人的几年-$paradise$</p>
+</blockquote>
 
   </article>
   <aside class="table-content" id="site-toc">
@@ -192,7 +196,7 @@
     <span>目录</span>
   </div>
   <div class="table-content-main">
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#C-读入优化"><span class="toc-text">C++读入优化</span></a></li></ol>
+    
   </div>
 </aside>
   
@@ -201,7 +205,7 @@
       
         <div>
           原文链接: 
-          <a href target="_blank">https://zja0811.github.io/2019/08/02/cpp读入优化/</a>
+          <a href target="_blank">https://zja0811.github.io/2019/08/05/一则故事/</a>
         </div>
       
       <div>
@@ -286,10 +290,10 @@
 
 <div class="bottom-bar">
   <div class="bottom-bar-left">
-    <a href="/2019/08/05/一则故事/" data-enable="true">
+    <a href="javascript:void(0);" data-enable="false">
       <i class="fa fa-arrow-left"></i>
     </a>
-    <a href="/2019/08/02/黑科技-不断更新/" data-enable="true">
+    <a href="/2019/08/02/cpp读入优化/" data-enable="true">
       <i class="fa fa-arrow-right"></i>
     </a>
   </div>
