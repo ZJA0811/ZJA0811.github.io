@@ -6,7 +6,7 @@
   <meta name="author" content="paradise_">
   
   
-  <title>伪装 | Hexo</title>
+  <title>python入土记-2 | Hexo</title>
 
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -164,7 +164,7 @@
   <div class="passage">
   <div class="passage-meta">
     <span>
-      <i class="fa fa-calendar"></i>2019-08-27
+      <i class="fa fa-calendar"></i>2019-08-28
     </span>
     
     
@@ -174,11 +174,25 @@
     
   </div>
   <h1 class="passage-title">
-    伪装
+    python入土记-2
   </h1>
   
   <article class="passage-article">
-    <p><strong>我为什么会这样念念又不忘-</strong><a href="https://music.163.com/#/song?id=862130427" target="_blank" rel="noopener">A</a><br>感谢大家的一路陪伴<br>感谢小杨 非常感谢<br>装的好累 好想放弃<br>别恶心人<br>持续性失眠 记忆力衰退 幻听 好累<br>没理由<br>高度以自我为中心精神洁癖脾气暴躁随时可能爆发丑声音不好听没有锁骨活不了多久不想留的赶紧滚蛋<br>之前很想和你分享自己的阴郁 想了想可能会吓到你<br>甚至让你产生负面情绪 就算了<br>对珏安有一种特殊的感觉 很怕会出现在别人身上<br>我觉得这种感觉是喜欢<br>要是出现在别人身上 那这几年的煎熬又算什么呢<br>不要成为一个滥情的人<br>成了过去的自己对现在的自己的期望<br>所以活得小心 活得谨慎<br>活着活着 就变成神经病了<br>我真的好累 活着好难<br>该吃安定片睡觉了 诸君晚安</p>
+    <p><del>因为已经入土,所以这篇文章咕了</del><br>电子书$482$页   $64$-$101$<br>早上八点就起床爬去图书馆<br>上午打了半把手速场 又双叒叕自闭了<br>懒得吃午饭然后开始看$python$</p>
+<p>循环操作:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">for variable in list:</span><br></pre></td></tr></table></figure></p>
+<p>$python$记得缩进==！ 写$Cpp$的烂习惯== 老是懒得缩进<br>一些不想说的函数$max$,$min$,$sum$<br>函数$range(min,max)$<br>可以生成一系列区间内的数字(除最大值<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">for value in range(1,5):</span><br><span class="line">    print(value)</span><br></pre></td></tr></table></figure></p>
+<p>$range$创建列表<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">numbers=list(range(1,6))</span><br></pre></td></tr></table></figure></p>
+<p>$range$指定步长创建列表<br>例如 偶数列表<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">evennumber=list(range(2,11,2))</span><br><span class="line">print(evennumber)</span><br></pre></td></tr></table></figure></p>
+<p>例如 乘方列表<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">squares=[]</span><br><span class="line">numbers=list(range(1,11))</span><br><span class="line">for value in numbers:</span><br><span class="line">    square=value**2</span><br><span class="line">    squares.append(square)</span><br><span class="line">print(squares)</span><br></pre></td></tr></table></figure></p>
+<p>通过列表解析 更简洁的创建乘方列表<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">squares = [value**2 for value in range(1,11)]</span><br></pre></td></tr></table></figure></p>
+<p>处理列表的部分元素-切片操作<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">players = [&apos;charles&apos;, &apos;martina&apos;, &apos;michael&apos;, &apos;florence&apos;, &apos;eli&apos;]</span><br><span class="line">print(players[1:4])</span><br></pre></td></tr></table></figure></p>
+<p>切片始于$marita$,终于$florence$<br>遍历切片<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">for feature in cxk[:3]</span><br></pre></td></tr></table></figure></p>
+<p>只遍历前三种技能 唱跳$rap$<br>同理可以通过切片复制列表</p>
+<p><strong>元组</strong><br>不能修改的值称为不可变的,而不可变的列表被称为元组<br>使用<strong>圆括号</strong>而不是<strong>方括号</strong>来标识<br>$if$语句-除了格式不一样==<br>$and$==&amp;&amp;<br>$or$==||<br>$in$和$not$ $in$可检查特定元素是否在列表里<br>返回$true$ $false$<br>$if-elif-else$<br>多列表使用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">available_toppings = [&apos;mushrooms&apos;, &apos;olives&apos;, &apos;green peppers&apos;,</span><br><span class="line">&apos;pepperoni&apos;, &apos;pineapple&apos;, &apos;extra cheese&apos;]</span><br><span class="line">requested_toppings = [&apos;mushrooms&apos;, &apos;french fries&apos;, &apos;extra cheese&apos;]</span><br><span class="line">for requested_topping in requested_toppings:</span><br><span class="line">    if requested_topping in available_toppings:</span><br><span class="line">     print(&quot;Adding &quot; + requested_topping + &quot;.&quot;)</span><br><span class="line">    else:</span><br><span class="line">print(&quot;Sorry, we don&apos;t have &quot; + requested_topping + &quot;.&quot;)</span><br><span class="line">print(&quot;\nFinished making your pizza!&quot;)</span><br></pre></td></tr></table></figure></p>
+<p>确定列表是否为空<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">if cxk:</span><br><span class="line">else</span><br></pre></td></tr></table></figure></p>
+<p><strong>字典</strong>:相关信息的关联<br>一个栗子:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cxk=&#123;&apos;skill&apos;:&apos;rap&apos;,&apos;skillneed&apos;:&apos;5&apos;&#125;</span><br><span class="line">print(cxk[&apos;skill&apos;])</span><br><span class="line">print(cxk[&apos;skillneed&apos;])</span><br></pre></td></tr></table></figure></p>
+<p>字典是一系列键—值对</p>
+<p><del>咕了</del></p>
 
   </article>
   <aside class="table-content" id="site-toc">
@@ -196,7 +210,7 @@
       
         <div>
           原文链接: 
-          <a href target="_blank">https://zja0811.github.io/2019/08/27/伪装/</a>
+          <a href target="_blank">https://zja0811.github.io/2019/08/28/python入土记-2/</a>
         </div>
       
       <div>
@@ -281,10 +295,10 @@
 
 <div class="bottom-bar">
   <div class="bottom-bar-left">
-    <a href="/2019/08/28/python入土记-2/" data-enable="true">
+    <a href="javascript:void(0);" data-enable="false">
       <i class="fa fa-arrow-left"></i>
     </a>
-    <a href="/2019/08/24/python入土记-1/" data-enable="true">
+    <a href="/2019/08/27/伪装/" data-enable="true">
       <i class="fa fa-arrow-right"></i>
     </a>
   </div>
