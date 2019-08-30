@@ -6,7 +6,7 @@
   <meta name="author" content="paradise_">
   
   
-  <title>python入土记-2 | Hexo</title>
+  <title>python入土记-3 | Hexo</title>
 
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -164,7 +164,7 @@
   <div class="passage">
   <div class="passage-meta">
     <span>
-      <i class="fa fa-calendar"></i>2019-08-28
+      <i class="fa fa-calendar"></i>2019-08-31
     </span>
     
     
@@ -174,25 +174,19 @@
     
   </div>
   <h1 class="passage-title">
-    python入土记-2
+    python入土记-3
   </h1>
   
   <article class="passage-article">
-    <p><del>因为已经入土,所以这篇文章咕了</del><br>电子书$482$页   $64$-$101$<br>早上八点就起床爬去图书馆<br>上午打了半把手速场 又双叒叕自闭了<br>懒得吃午饭然后开始看$python$</p>
-<p>循环操作:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">for variable in list:</span><br></pre></td></tr></table></figure></p>
-<p>$python$记得缩进==！ 写$Cpp$的烂习惯== 老是懒得缩进<br>一些不想说的函数$max$,$min$,$sum$<br>函数$range(min,max)$<br>可以生成一系列区间内的数字(除最大值<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">for value in range(1,5):</span><br><span class="line">    print(value)</span><br></pre></td></tr></table></figure></p>
-<p>$range$创建列表<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">numbers=list(range(1,6))</span><br></pre></td></tr></table></figure></p>
-<p>$range$指定步长创建列表<br>例如 偶数列表<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">evennumber=list(range(2,11,2))</span><br><span class="line">print(evennumber)</span><br></pre></td></tr></table></figure></p>
-<p>例如 乘方列表<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">squares=[]</span><br><span class="line">numbers=list(range(1,11))</span><br><span class="line">for value in numbers:</span><br><span class="line">    square=value**2</span><br><span class="line">    squares.append(square)</span><br><span class="line">print(squares)</span><br></pre></td></tr></table></figure></p>
-<p>通过列表解析 更简洁的创建乘方列表<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">squares = [value**2 for value in range(1,11)]</span><br></pre></td></tr></table></figure></p>
-<p>处理列表的部分元素-切片操作<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">players = [&apos;charles&apos;, &apos;martina&apos;, &apos;michael&apos;, &apos;florence&apos;, &apos;eli&apos;]</span><br><span class="line">print(players[1:4])</span><br></pre></td></tr></table></figure></p>
-<p>切片始于$marita$,终于$florence$<br>遍历切片<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">for feature in cxk[:3]</span><br></pre></td></tr></table></figure></p>
-<p>只遍历前三种技能 唱跳$rap$<br>同理可以通过切片复制列表</p>
-<p><strong>元组</strong><br>不能修改的值称为不可变的,而不可变的列表被称为元组<br>使用<strong>圆括号</strong>而不是<strong>方括号</strong>来标识<br>$if$语句-除了格式不一样==<br>$and$==&amp;&amp;<br>$or$==||<br>$in$和$not$ $in$可检查特定元素是否在列表里<br>返回$true$ $false$<br>$if-elif-else$<br>多列表使用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">available_toppings = [&apos;mushrooms&apos;, &apos;olives&apos;, &apos;green peppers&apos;,</span><br><span class="line">&apos;pepperoni&apos;, &apos;pineapple&apos;, &apos;extra cheese&apos;]</span><br><span class="line">requested_toppings = [&apos;mushrooms&apos;, &apos;french fries&apos;, &apos;extra cheese&apos;]</span><br><span class="line">for requested_topping in requested_toppings:</span><br><span class="line">    if requested_topping in available_toppings:</span><br><span class="line">     print(&quot;Adding &quot; + requested_topping + &quot;.&quot;)</span><br><span class="line">    else:</span><br><span class="line">print(&quot;Sorry, we don&apos;t have &quot; + requested_topping + &quot;.&quot;)</span><br><span class="line">print(&quot;\nFinished making your pizza!&quot;)</span><br></pre></td></tr></table></figure></p>
-<p>确定列表是否为空<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">if cxk:</span><br><span class="line">else</span><br></pre></td></tr></table></figure></p>
-<p><strong>字典</strong>:相关信息的关联<br>一个栗子:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cxk=&#123;&apos;skill&apos;:&apos;rap&apos;,&apos;skillneed&apos;:&apos;5&apos;&#125;</span><br><span class="line">print(cxk[&apos;skill&apos;])</span><br><span class="line">print(cxk[&apos;skillneed&apos;])</span><br></pre></td></tr></table></figure></p>
-<p>字典是一系列键—值对</p>
-<p><del>咕了</del></p>
+    <h1 id="python入土记-3"><a href="#python入土记-3" class="headerlink" title="python入土记-3"></a>python入土记-3</h1><p>凌晨补完了前几天咕的半把手速场<br>终于$AK$了(大雾<br>又双叒叕自闭了 </p>
+<p>$p101$-$p116$<br>字典-$map$？<br><strong>字典</strong>是一种动态结构,可随时在其中添加键—值对.要添加键—值对,可依次指定字典名.用方括号括起的键和相关联的值<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">alien_0 = &#123;&apos;x_position&apos;: 0, &apos;y_position&apos;: 25, &apos;speed&apos;: &apos;medium&apos;&#125;</span><br><span class="line">print(&quot;Original x-position: &quot; + str(alien_0[&apos;x_position&apos;]))</span><br><span class="line"># 向右移动外星人</span><br><span class="line"># 据外星人当前速度决定将其移动多远</span><br><span class="line">if alien_0[&apos;speed&apos;] == &apos;slow&apos;:</span><br><span class="line">x_increment = 1</span><br><span class="line">elif al i en_0[&apos;speed&apos;] == &apos;medium&apos;:</span><br><span class="line">x_increment = 2</span><br><span class="line">else:</span><br><span class="line"># 这个外星人的速度一定很快</span><br><span class="line">x_increment = 3</span><br><span class="line"># 新位置等于老位置加上增量</span><br><span class="line">alien_0[&apos;x_position&apos;] = alien_0[&apos;x_position&apos;] + x_increment</span><br><span class="line">print(&quot;New x-position: &quot; + str(alien_0[&apos;x_position&apos;]))</span><br></pre></td></tr></table></figure></p>
+<p>$del$语句可以删除键-值对<br>由类似对象组成的字典:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">favorite_languages = &#123;</span><br><span class="line">&apos;jen&apos;: &apos;python&apos;,</span><br><span class="line">&apos;sarah&apos;: &apos;c&apos;,</span><br><span class="line">&apos;edward&apos;: &apos;ruby&apos;,</span><br><span class="line">&apos;phil&apos;: &apos;python&apos;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>遍历字典:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">user_0 = &#123;</span><br><span class="line">&apos;username&apos;: &apos;efermi&apos;,</span><br><span class="line">&apos;first&apos;: &apos;enrico&apos;,</span><br><span class="line">&apos;last&apos;: &apos;fermi&apos;,</span><br><span class="line">&#125;</span><br><span class="line">for key, value in user_0.items()://方法items()返回一个键-值对列表</span><br><span class="line">    print(&quot;\nKey: &quot; + key)</span><br><span class="line">    print(&quot;Value: &quot; + value)</span><br></pre></td></tr></table></figure></p>
+<p>遍历字典中的所有键:方法$keys()$<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">favorite_languages = &#123;</span><br><span class="line">&apos;jen&apos;: &apos;python&apos;,</span><br><span class="line">&apos;sarah&apos;: &apos;c&apos;,</span><br><span class="line">&apos;edward&apos;: &apos;ruby&apos;,</span><br><span class="line">&apos;phil&apos;: &apos;python&apos;,</span><br><span class="line">&#125;</span><br><span class="line">for name in favorite_languages.keys()://方法keys()遍历字典中的所有键</span><br><span class="line">    print(name.title())</span><br></pre></td></tr></table></figure></p>
+<p>使用$sorted$可以按顺序遍历所有键<br>遍历字典中的所有值:方法$values()$<br>遍历字典中的所有值的时候剔除重复项:$set(X.values())$</p>
+<p><strong>嵌套</strong>:<br>有时候,需要将一系列字典存储在列表中,或将列表作为值存储在字典中,这称为<strong>嵌套</strong><br>1.在列表里储存字典<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">alien_0 = &#123;&apos;color&apos;: &apos;green&apos;, &apos;points&apos;: 5&#125;</span><br><span class="line">alien_1 = &#123;&apos;color&apos;: &apos;yellow&apos;, &apos;points&apos;: 10&#125;</span><br><span class="line">alien_2 = &#123;&apos;color&apos;: &apos;red&apos;, &apos;points&apos;: 15&#125;</span><br><span class="line">  aliens = [alien_0, alien_1, alien_2]</span><br></pre></td></tr></table></figure></p>
+<p>2.在字典里储存列表<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">pizza = &#123;</span><br><span class="line">&apos;crust&apos;: &apos;thick&apos;,</span><br><span class="line">&apos;toppings&apos;: [&apos;mushrooms&apos;, &apos;extra cheese&apos;],</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>今天好水==  <del>要是每天都这么水就好了</del></p>
 
   </article>
   <aside class="table-content" id="site-toc">
@@ -201,7 +195,7 @@
     <span>目录</span>
   </div>
   <div class="table-content-main">
-    
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#python入土记-3"><span class="toc-text">python入土记-3</span></a></li></ol>
   </div>
 </aside>
   
@@ -210,7 +204,7 @@
       
         <div>
           原文链接: 
-          <a href target="_blank">https://zja0811.github.io/2019/08/28/python入土记-2/</a>
+          <a href target="_blank">https://zja0811.github.io/2019/08/31/python入土记-3/</a>
         </div>
       
       <div>
@@ -295,10 +289,10 @@
 
 <div class="bottom-bar">
   <div class="bottom-bar-left">
-    <a href="/2019/08/31/python入土记-3/" data-enable="true">
+    <a href="javascript:void(0);" data-enable="false">
       <i class="fa fa-arrow-left"></i>
     </a>
-    <a href="/2019/08/27/伪装/" data-enable="true">
+    <a href="/2019/08/28/python入土记-2/" data-enable="true">
       <i class="fa fa-arrow-right"></i>
     </a>
   </div>
