@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html>
+  
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  <meta name="author" content="paradise_">
+  
+  
+  <title>python入土记-4 | Hexo</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta name="keywords" content="Hexo, Theme-AD">
+  
+
+  
+  <meta name="description" content="谢望凌">
+
+  
+
+  
+    <script src="//cdn.jsdelivr.net/npm/leancloud-storage@3.11.1/dist/av-min.js" async></script>
+  
+
+  
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+  
+
+  
+    <script src="//unpkg.com/valine/dist/Valine.min.js" async></script>
+  
+
+  
+
+  <script>
+  // theme-ad's config script
+  // it can be used in every script
+  
+  window.AD_CONFIG = {
+    leancloud: {"appid":"Hyq9wkH495DgNHWhDQCOfQSp-gzGzoHsz","appkey":"WaR7nrzhliHj9aVwdQzkdlGd","comment":true,"count":true},
+    welcome: {"enable":false,"interval":30},
+    start_time: "2019-4-26",
+    passwords: ["efe07af7441da2b69c4a41e42e73be4db47f66010a56900788a458354a7373ec", ],
+    is_post: true,
+    lock: false,
+    author: "paradise_",
+    share: {"twitter":true,"facebook":true,"weibo":true,"qq":true,"wechat":true},
+    mathjax: true,
+    page_type: "",
+    root: "/"
+  };
+</script>
+
+  <script src="/vendor/sha256.min.js"></script>
+<script src="/js/auth.js"></script>
+<script src="/js/index.js"></script>
+<script src="/vendor/qrcode.min.js"></script>
+
+  
+    <link rel="icon" href="/images/favicon.ico">
+    <link rel="apple-touch-icon" href="/images/touch-icon.png">
+  
+
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="/css/index.css">
+<link rel="stylesheet" href="/styles/components/highlight/highlight.css">
+
+  
+</head>
+  <body>
+    <header class="site-header">
+  <div class="site-header-brand">
+    
+      <span class="site-header-brand-title">
+        <a href="/">等到你</a>
+      </span>
+    
+    
+      <span class="site-header-brand-motto"> | OUCer</span>
+    
+  </div>
+  <div class="site-header-right">
+    <nav class="site-header-navigation">
+      
+        <a href="/" target="_self">首页</a>
+      
+        <a href="/archives/" target="_self">归档</a>
+      
+        <a href="/tags/" target="_self">标签</a>
+      
+        <a href="/categories/" target="_self">分类</a>
+      
+        <a href="/friends/" target="_self">友链</a>
+      
+        <a href="/about/" target="_self">关于</a>
+      
+    </nav>
+    <div class="site-header-btn">
+      
+        <a href="https://github.com/ZJA0811/" target="_blank" id="site-github">
+          <i class="fa fa-github-alt"></i>
+        </a>
+      
+      <a href="javascript:void(0);" id="site-search">
+        <i class="fa fa-search"></i>
+      </a>
+      <a href="javascript:void(0);" id="site-nav-btn">
+        <i class="fa fa-ellipsis-v"></i>
+      </a>
+    </div>
+  </div>
+</header>
+<nav class="table-content" id="site-nav">
+  <div class="table-content-title">
+    <span>导航</span>
+  </div>
+  <div class="table-content-main">
+    <ol class="toc">
+      
+        <li class="toc-item">
+          <a href="/" target="_self">
+            首页
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="/archives/" target="_self">
+            归档
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="/tags/" target="_self">
+            标签
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="/categories/" target="_self">
+            分类
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="/friends/" target="_self">
+            友链
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="/about/" target="_self">
+            关于
+          </a>
+        </li>
+      
+    </ol>
+  </div>
+</nav>
+<div id="site-process"></div>
+    <main>
+      
+  <div class="passage">
+  <div class="passage-meta">
+    <span>
+      <i class="fa fa-calendar"></i>2019-09-01
+    </span>
+    
+    
+      <span>
+        | <i class="fa fa-unlock-alt"></i>UNLOCK
+      </span>
+    
+  </div>
+  <h1 class="passage-title">
+    python入土记-4
+  </h1>
+  
+  <article class="passage-article">
+    <h1 id="python入土记-4"><a href="#python入土记-4" class="headerlink" title="python入土记-4"></a>python入土记-4</h1><p>$p116$-$p181$</p>
+<p>1.在字典中存储字典<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">users = &#123;</span><br><span class="line">&apos;aeinstein&apos;: &#123;</span><br><span class="line">&apos;first&apos;: &apos;albert&apos;,</span><br><span class="line">&apos;last&apos;: &apos;einstein&apos;,</span><br><span class="line">&apos;location&apos;: &apos;princeton&apos;,</span><br><span class="line">&#125;,</span><br><span class="line">&apos;mcurie&apos;: &#123;</span><br><span class="line">&apos;first&apos;: &apos;marie&apos;,</span><br><span class="line">&apos;last&apos;: &apos;curie&apos;,</span><br><span class="line">&apos;location&apos;: &apos;paris&apos;,</span><br><span class="line">&#125;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>即定义一个名为$users$的字典,有两个键,与每个键相连的都是一个字典</p>
+<p><strong>用户输入和循环</strong><br>函数$input()$让程序暂停运行,等待用户输入一些文本.获取用户输入后,$Python$将其存储在一个变量中,以方便你使用.<br>使用$input()$的时候自动解释成字符串<br>转化为数值类型:$int()$<br>$while$循环使用:<br>在列表之间移动元素<br>删除包含特定值的所有列表元素 函数$remove()$</p>
+<p><strong>函数</strong><br>关键字$def$来告诉$python$你要定义一个函数<br>可以传递变量,列表,字典 返回值同<br>禁止函数修改列表:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># 切片表示法 [:] 创建列表的副本</span><br><span class="line">print_models(unprinted_designs[:], completed_models)</span><br><span class="line"># 函数所做修改不会改变列表</span><br></pre></td></tr></table></figure></p>
+<p>函数的优点之一是,使用它们可将代码块与主程序分离。通过给函数指定描述性名称,可让主程序容易理解得多.你还可以更进一步，将函数存储在被称为模块的独立文件中,再将模块导入到主程序中.$import$语句允许在当前运行的程序文件中使用模块中的代码.<br>1.导入整个模块<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">import something</span><br></pre></td></tr></table></figure></p>
+<p>2.导入特定的函数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">from module_name import function_name</span><br></pre></td></tr></table></figure></p>
+<p> 可以使用$as$给函数/模块指定别名<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">from chang import fuction as rap</span><br><span class="line">import rap as r</span><br></pre></td></tr></table></figure></p>
+<p>3.导入模块中所有函数<br>星号运算符$(*)$<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">from module_name import *</span><br></pre></td></tr></table></figure></p>
+<p><strong>类</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"> class Dog():</span><br><span class="line"> &quot;&quot;&quot;一次模拟小狗的简单尝试&quot;&quot;&quot;</span><br><span class="line"> def __init__(self, name, age):</span><br><span class="line">&quot;&quot;&quot;初始化属性name和age&quot;&quot;&quot;</span><br><span class="line"> self.name = name</span><br><span class="line">self.age = age</span><br><span class="line"> def sit(self):</span><br><span class="line">&quot;&quot;&quot;模拟小狗被命令时蹲下&quot;&quot;&quot;</span><br><span class="line">print(self.name.title() + &quot; is now sitting.&quot;)</span><br><span class="line">def roll_over(self):</span><br><span class="line">&quot;&quot;&quot;模拟小狗被命令时打滚&quot;&quot;&quot;</span><br><span class="line">print(self.name.title() + &quot; rolled over!&quot;)</span><br></pre></td></tr></table></figure></p>
+<p><strong>继承</strong><br>如果你要编写的类是另一个现成类的特殊版本,可使用继承.一个类继承另一个类时,它将自动获得另一个类的所有属性和方法;原有的类称为父类,而新类称为子类.子类继承了其父类的所有属性和方法,同时还可以定义自己的属性和方法.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">class Car():</span><br><span class="line">&quot;&quot;&quot;一次模拟汽车的简单尝试&quot;&quot;&quot;</span><br><span class="line">def __init__(self, make, model, year):</span><br><span class="line">self.make = make</span><br><span class="line">self.model = model</span><br><span class="line">self.year = year</span><br><span class="line">self.odometer_reading = 0</span><br><span class="line">def get_descriptive_name(self):</span><br><span class="line">long_name = str(self.year) + &apos; &apos; + self.make + &apos; &apos; + self.model</span><br><span class="line">return long_name.title()</span><br><span class="line">def read_odometer(self):</span><br><span class="line">print(&quot;This car has &quot; + str(self.odometer_reading) + &quot; miles on it.&quot;)</span><br><span class="line">def update_odometer(self, mileage):</span><br><span class="line">if mileage &gt;= self.odometer_reading:</span><br><span class="line">self.odometer_reading = mileage</span><br><span class="line">else:</span><br><span class="line">print(&quot;You can&apos;t roll back an odometer!&quot;)</span><br><span class="line">def increment_odometer(self, miles):</span><br><span class="line">self.odometer_reading += miles</span><br><span class="line">  class ElectricCar(Car):</span><br><span class="line">&quot;&quot;&quot;电动汽车的独特之处&quot;&quot;&quot;</span><br><span class="line">  def __init__(self, make, model, year):</span><br><span class="line">&quot;&quot;&quot;初始化父类的属性&quot;&quot;&quot;</span><br><span class="line">  #####</span><br><span class="line">  super().__init__(make, model, year)</span><br><span class="line">  my_tesla = ElectricCar(&apos;tesla&apos;, &apos;model s&apos;, 2016)</span><br><span class="line">print(my_tesla.get_descriptive_name())</span><br></pre></td></tr></table></figure>
+<p>导入类:<br>类似导入函数<br>导入一个类<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">from A.py import B</span><br></pre></td></tr></table></figure></p>
+<p>导入整个模块<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">import A</span><br></pre></td></tr></table></figure></p>
+<p>导入模块中的所有类<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">from module_name import *</span><br></pre></td></tr></table></figure></p>
+
+  </article>
+  <aside class="table-content" id="site-toc">
+  <div class="table-content-title">
+    <i class="fa fa-arrow-right fa-lg" id="site-toc-hide-btn"></i>
+    <span>目录</span>
+  </div>
+  <div class="table-content-main">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#python入土记-4"><span class="toc-text">python入土记-4</span></a></li></ol>
+  </div>
+</aside>
+  
+    <aside class="passage-copyright">
+      <div>本文作者: paradise</div>
+      
+        <div>
+          原文链接: 
+          <a href target="_blank">https://zja0811.github.io/2019/09/01/python入土记-4/</a>
+        </div>
+      
+      <div>
+        版权声明: 本博客所有文章除特别声明外, 均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议. 转载请注明出处!
+      </div>
+    </aside>
+  
+  
+</div>
+
+    </main>
+    
+      
+<div class="site-comment-contanier" data-plateform="leancloud">
+  
+    <p id="site-comment-info">
+      <i class="fa fa-spinner fa-spin"></i> 评论加载中
+    </p>
+    <div id="site-comment"></div>
+  
+</div>
+    
+    <div class="site-footer-wrapper">
+  <footer class="site-footer">
+    
+    <div class="site-footer-info">
+      <i class="fa fa-clock-o"></i> 本站已稳定运行<span id="site-time"></span>
+    </div>
+    
+      <div class="site-footer-info">
+        <i class="fa fa-paw"></i> 您是本站第 <span id="site-count"></span> 位访客
+      </div>
+    
+    
+      <div class="site-footer-info">
+        <i class="fa fa-at"></i> Email: 1246785974@qq.com
+      </div>
+    
+    <div class="site-footer-info">
+      <i class="fa fa-copyright"></i> 
+      2019 <a href="https://github.com/dongyuanxin/theme-ad/" target="_blank">Theme-AD</a>.
+      Created by <a href="https://godbmw.com/" target="_blank">GodBMW</a>.
+      All rights reserved.
+    </div>
+  </footer>
+</div>
+    <div id="site-layer" style="display:none;">
+  <div class="site-layer-content">
+    <div class="site-layer-header">
+      <span class="site-layer-header-title" id="site-layer-title"></span>
+      <i class="fa fa-close" id="site-layer-close"></i>
+    </div>
+    <div class="site-layer-body" id="site-layer-container">
+      <div class="site-layer-input" id="site-layer-search" style="display: none;">
+        <input type="text">
+        <i class="fa fa-search"></i>
+      </div>
+      
+        <div class="site-layer-reward" id="site-layer-reward" style="display: none;">
+          
+            <div>
+              <img src="/images/wechat.png" alt="WeChat">
+              
+                <p>WeChat</p>
+              
+            </div>
+          
+            <div>
+              <img src="/images/alipay.png" alt="AliPay">
+              
+                <p>AliPay</p>
+              
+            </div>
+          
+        </div>
+      
+      <div id="site-layer-welcome" style="display:none;"></div>
+    </div>
+  </div>
+</div>
+    
+
+<div class="bottom-bar">
+  <div class="bottom-bar-left">
+    <a href="javascript:void(0);" data-enable="false">
+      <i class="fa fa-arrow-left"></i>
+    </a>
+    <a href="/2019/09/01/大二上学习计划/" data-enable="true">
+      <i class="fa fa-arrow-right"></i>
+    </a>
+  </div>
+  <div class="bottom-bar-right">
+    <a href="javascript:void(0);" data-enable="true" id="site-toc-show-btn">
+      <i class="fa fa-bars"></i>
+    </a>
+    
+      <a href="#site-comment" data-enable="true">
+        <i class="fa fa-commenting"></i>
+      </a>
+    
+    <a href="javascript:void(0);" id="site-toggle-share-btn">
+      <i class="fa fa-share-alt"></i>
+    </a>
+    
+      <a href="javascript:void(0);" id="site-reward">
+        <i class="fa fa-thumbs-up"></i>
+      </a>
+    
+    <a href="javascript:void(0);" id="back-top-btn">
+      <i class="fa fa-chevron-up"></i>
+    </a>
+  </div>
+</div>
+    <div id="share-btn">
+  
+    <a id="share-btn-twitter" href="javascript:void(0);" target="_blank">
+      <i class="fa fa-twitter"></i>
+    </a>
+  
+  
+    <a id="share-btn-facebook" href="javascript:void(0);" target="_blank">
+      <i class="fa fa-facebook"></i>
+    </a>
+  
+  
+    <a id="share-btn-weibo" href="javascript:void(0);" target="_blank">
+      <i class="fa fa-weibo"></i>
+    </a>
+  
+  
+    <a id="share-btn-qq" href="javascript:void(0);" target="_blank">
+      <i class="fa fa-qq"></i>
+    </a>
+  
+  
+    <a id="share-btn-wechat" href="javascript:void(0);" target="_blank">
+      <i class="fa fa-wechat"></i>
+    </a>
+  
+</div>
+    
+
+
+
+
+
+    
+  </body>
+</html>
