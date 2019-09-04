@@ -6,7 +6,7 @@
   <meta name="author" content="paradise_">
   
   
-  <title>归档: 2019/7 | Hexo</title>
+  <title>python入土记-5 | Hexo</title>
 
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -42,7 +42,7 @@
     welcome: {"enable":false,"interval":30},
     start_time: "2019-4-26",
     passwords: ["efe07af7441da2b69c4a41e42e73be4db47f66010a56900788a458354a7373ec", ],
-    is_post: false,
+    is_post: true,
     lock: false,
     author: "paradise_",
     share: {"twitter":true,"facebook":true,"weibo":true,"qq":true,"wechat":true},
@@ -160,37 +160,71 @@
 </nav>
 <div id="site-process"></div>
     <main>
-      <div class="timeline">
-  <h2 class="timeline-title">归档: 36篇</h2>
+      
+  <div class="passage">
+  <div class="passage-meta">
+    <span>
+      <i class="fa fa-calendar"></i>2019-09-04
+    </span>
+    
+    
+      <span>
+        | <i class="fa fa-unlock-alt"></i>UNLOCK
+      </span>
+    
+  </div>
+  <h1 class="passage-title">
+    python入土记-5
+  </h1>
   
-    
-      <h3 class="timeline-subtitle">2019</h3>
-    
-    <div class="timeline-item">
-      <time>2019-07-24</time>
-      <a target="_self" href="/2019/07/24/BZOJ-2287/">BZOJ-2287</a>
-    </div>
+  <article class="passage-article">
+    <h1 id="python入土记-5"><a href="#python入土记-5" class="headerlink" title="python入土记-5"></a>python入土记-5</h1><p>$p181$-$p226$<br>三点还醒着然后八点就往图书馆走<br>可能是脑子转不太动的原因<br>上午打了半把手速赛 又双叒叕自闭了<br><strong>文件与异常</strong><br>从文件中读取数据<br>1.读取整个文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">#将文件打开 储存在变量file_object中</span><br><span class="line">#同理close()可以关闭文件</span><br><span class="line">with open(&apos;pi_digits.txt&apos;) as file_object:</span><br><span class="line">    # 读取文件</span><br><span class="line">    contents = file_object.read()</span><br><span class="line">    print(contents)</span><br></pre></td></tr></table></figure></p>
+<p>函数$open()$接受一个参数:要打开的文件的名称.$Python$在当前执行的文件所在的目录中查找指定的文件.<br>提供文件路径<br>在$Windows$系统中,在文件路径中使用反斜杠$()$而不是斜杠$(/)$:<br>2.逐行读取<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">filename = &apos;cxk.txt&apos;</span><br><span class="line"></span><br><span class="line">with open(filename) as file_object:</span><br><span class="line">for line in file_object:</span><br><span class="line">   print(line)</span><br></pre></td></tr></table></figure></p>
+<p>3.创建一个包含文件各行内容的列表<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">filename = &apos;pi_digits.txt&apos;</span><br><span class="line">with open(filename) as file_object:</span><br><span class="line">  lines = file_object.readlines()</span><br><span class="line"></span><br><span class="line">for line in lines:</span><br><span class="line">  print(line.rstrip())</span><br></pre></td></tr></table></figure></p>
+<p><strong>注意</strong>:读取文本文件时,$Python$将其中的所有文本都解读为字符串.如果你读取的是数字,并要将其作为数值使用,就必须使用函数$int()$将其转换为整数,或使用函数$float()$将其转换为浮点数</p>
+<p>写入文件<br>1.写入空文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># 打开方式有多种</span><br><span class="line">filename = &apos;programming.txt&apos;</span><br><span class="line">  with open(filename, &apos;w&apos;) as file_object:</span><br><span class="line">  file_object.write(&quot;I love programming.&quot;)</span><br></pre></td></tr></table></figure></p>
+<p>2.写入多行<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">filename = &apos;programming.txt&apos;</span><br><span class="line">with open(filename, &apos;w&apos;) as file_object:</span><br><span class="line">   file_object.write(&quot;I love programming.&quot;)</span><br><span class="line">   file_object.write(&quot;I love creating new games.&quot;)</span><br></pre></td></tr></table></figure></p>
+<p>模块$json$<br>模块$json$让你能够将简单的$python$数据结构转储到文件中,并在程序再次运行时加载该文件中的数据<br>使用$json.dump()$和$json.load()$<br>函数$json.dump()$接受两个实参:要存储的数据以及可用于存储数据的文件对象<br>函数$json.load()$将这个数据或文件读取到内存中</p>
+<p>$python$语法结束啦 电子书后面有教做项目的==<br><del>咕了</del></p>
+
+  </article>
+  <aside class="table-content" id="site-toc">
+  <div class="table-content-title">
+    <i class="fa fa-arrow-right fa-lg" id="site-toc-hide-btn"></i>
+    <span>目录</span>
+  </div>
+  <div class="table-content-main">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#python入土记-5"><span class="toc-text">python入土记-5</span></a></li></ol>
+  </div>
+</aside>
   
-    
-    <div class="timeline-item">
-      <time>2019-07-06</time>
-      <a target="_self" href="/2019/07/06/cpp从入门到入土/">cpp从入门到入土</a>
-    </div>
+    <aside class="passage-copyright">
+      <div>本文作者: paradise</div>
+      
+        <div>
+          原文链接: 
+          <a href target="_blank">https://zja0811.github.io/2019/09/04/python入土记-5/</a>
+        </div>
+      
+      <div>
+        版权声明: 本博客所有文章除特别声明外, 均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议. 转载请注明出处!
+      </div>
+    </aside>
   
-    
-    <div class="timeline-item">
-      <time>2019-07-05</time>
-      <a target="_self" href="/2019/07/05/腐烂的日子和糟糕的我/">腐烂的日子和糟糕的我</a>
-    </div>
-  
-    
-    <div class="timeline-item">
-      <time>2019-07-02</time>
-      <a target="_self" href="/2019/07/02/暑假计划/">暑假计划</a>
-    </div>
   
 </div>
+
     </main>
+    
+      
+<div class="site-comment-contanier" data-plateform="leancloud">
+  
+    <p id="site-comment-info">
+      <i class="fa fa-spinner fa-spin"></i> 评论加载中
+    </p>
+    <div id="site-comment"></div>
+  
+</div>
     
     <div class="site-footer-wrapper">
   <footer class="site-footer">
@@ -257,16 +291,16 @@
     <a href="javascript:void(0);" data-enable="false">
       <i class="fa fa-arrow-left"></i>
     </a>
-    <a href="javascript:void(0);" data-enable="false">
+    <a href="/2019/09/01/python入土记-4/" data-enable="true">
       <i class="fa fa-arrow-right"></i>
     </a>
   </div>
   <div class="bottom-bar-right">
-    <a href="javascript:void(0);" data-enable="false" id="site-toc-show-btn">
+    <a href="javascript:void(0);" data-enable="true" id="site-toc-show-btn">
       <i class="fa fa-bars"></i>
     </a>
     
-      <a href="javascript:void(0);" data-enable="false">
+      <a href="#site-comment" data-enable="true">
         <i class="fa fa-commenting"></i>
       </a>
     
