@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html>
+  
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  <meta name="author" content="paradise_">
+  
+  
+  <title>高斯消元 | Hexo</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta name="keywords" content="Hexo, Theme-AD">
+  
+
+  
+  <meta name="description" content="谢望凌">
+
+  
+
+  
+    <script src="//cdn.jsdelivr.net/npm/leancloud-storage@3.11.1/dist/av-min.js" async></script>
+  
+
+  
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+  
+
+  
+    <script src="//unpkg.com/valine/dist/Valine.min.js" async></script>
+  
+
+  
+
+  <script>
+  // theme-ad's config script
+  // it can be used in every script
+  
+  window.AD_CONFIG = {
+    leancloud: {"appid":"Hyq9wkH495DgNHWhDQCOfQSp-gzGzoHsz","appkey":"WaR7nrzhliHj9aVwdQzkdlGd","comment":true,"count":true},
+    welcome: {"enable":false,"interval":30},
+    start_time: "2019-4-26",
+    passwords: ["efe07af7441da2b69c4a41e42e73be4db47f66010a56900788a458354a7373ec", ],
+    is_post: true,
+    lock: false,
+    author: "paradise_",
+    share: {"twitter":true,"facebook":true,"weibo":true,"qq":true,"wechat":true},
+    mathjax: true,
+    page_type: "",
+    root: "/"
+  };
+</script>
+
+  <script src="/vendor/sha256.min.js"></script>
+<script src="/js/auth.js"></script>
+<script src="/js/index.js"></script>
+<script src="/vendor/qrcode.min.js"></script>
+
+  
+    <link rel="icon" href="/images/favicon.ico">
+    <link rel="apple-touch-icon" href="/images/touch-icon.png">
+  
+
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="/css/index.css">
+<link rel="stylesheet" href="/styles/components/highlight/highlight.css">
+
+  
+</head>
+  <body>
+    <header class="site-header">
+  <div class="site-header-brand">
+    
+      <span class="site-header-brand-title">
+        <a href="/">等到你</a>
+      </span>
+    
+    
+      <span class="site-header-brand-motto"> | OUCer</span>
+    
+  </div>
+  <div class="site-header-right">
+    <nav class="site-header-navigation">
+      
+        <a href="/" target="_self">首页</a>
+      
+        <a href="/archives/" target="_self">归档</a>
+      
+        <a href="/tags/" target="_self">标签</a>
+      
+        <a href="/categories/" target="_self">分类</a>
+      
+        <a href="/friends/" target="_self">友链</a>
+      
+        <a href="/about/" target="_self">关于</a>
+      
+    </nav>
+    <div class="site-header-btn">
+      
+        <a href="https://github.com/ZJA0811/" target="_blank" id="site-github">
+          <i class="fa fa-github-alt"></i>
+        </a>
+      
+      <a href="javascript:void(0);" id="site-search">
+        <i class="fa fa-search"></i>
+      </a>
+      <a href="javascript:void(0);" id="site-nav-btn">
+        <i class="fa fa-ellipsis-v"></i>
+      </a>
+    </div>
+  </div>
+</header>
+<nav class="table-content" id="site-nav">
+  <div class="table-content-title">
+    <span>导航</span>
+  </div>
+  <div class="table-content-main">
+    <ol class="toc">
+      
+        <li class="toc-item">
+          <a href="/" target="_self">
+            首页
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="/archives/" target="_self">
+            归档
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="/tags/" target="_self">
+            标签
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="/categories/" target="_self">
+            分类
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="/friends/" target="_self">
+            友链
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="/about/" target="_self">
+            关于
+          </a>
+        </li>
+      
+    </ol>
+  </div>
+</nav>
+<div id="site-process"></div>
+    <main>
+      
+  <div class="passage">
+  <div class="passage-meta">
+    <span>
+      <i class="fa fa-calendar"></i>2019-11-08
+    </span>
+    
+    
+      <span>
+        | <i class="fa fa-unlock-alt"></i>UNLOCK
+      </span>
+    
+  </div>
+  <h1 class="passage-title">
+    高斯消元
+  </h1>
+  
+  <article class="passage-article">
+    <p>#高斯消元</p>
+<p>众所周知，高斯消元是线性代数中重要的一课。通过矩阵来解线性方程组。<br>高斯消元最大的用途就是用来解多元一次方程组。</p>
+<p>##前置技能<br>1.线性方程组<br>线性方程组是各个方程关于未知量均为一次的方程组(例如2元1次方程组）<br>2.增广矩阵<br>就是在系数矩阵的右边添上一列，这一列是线性方程组的等号右边的值。（接下来会举例子说明）<del>虽然我觉得没什么用</del><br>3.主元<br>一种变元。指在消去过程中起主导作用的元素<br>4.初等行列变换<br>用一非零的数乘以某一方程<br>把一个方程的倍数加到另一个方程<br>互换两个方程的位置</p>
+<p>##题目-Acwing883<br><a href="https://www.acwing.com/problem/content/description/885/" target="_blank" rel="noopener">戳这</a></p>
+<p>###题意描述<br>输入一个包含n个方程n个未知数的线性方程组。<br>方程组中的系数为实数。<br>求解这个方程组。<br>下图为一个包含m个方程n个未知数的线性方程组示例：<br><img src="https://cdn.acwing.com/media/article/image/2019/06/27/19_b30080c698-9a504fc2d5628535be9dcb5f90ef76c6a7ef634a.gif" alt="此处输入图片的描述"></p>
+<p>###输入格式<br>第一行包含整数$n$。<br>接下来$n$行，每行包含$n+1$个实数，表示一个方程的$n$个系数以及等号右侧的常数。</p>
+<p>###输出格式<br>如果给定线性方程组存在唯一解，则输出共$n$行，其中第$i$行输出第$i$个未知数的解，结果保留两位小数。<br>如果给定线性方程组存在无数解，则输出“$Infinite$ $group$ $solutions$”。<br>如果给定线性方程组无解，则输出“$No$ $solution$”。</p>
+<p>###数据范围<br>$1≤n≤100$<br>所有输入系数以及常数均保留两位小数，绝对值均不超过$100$。</p>
+<p>###输入样例</p>
+<blockquote>
+<p>3<br>1.00 2.00 -1.00 -6.00<br>2.00 1.00 -3.00 -9.00<br>-1.00 -1.00 2.00 7.00</p>
+</blockquote>
+<p>###输出样例：</p>
+<blockquote>
+<p>1.00<br>-2.00<br>3.00</p>
+</blockquote>
+<p>现在我们来解释一下样例<br>首先看到样例 小学生或者初中生都能解出其所对应的线性方程组<br>但是我们要考虑怎么使用代码来实现这个简单的过程<br>先考虑解的情况<br>线性方程组无非有三种情况（也可以根据矩阵的秩来判断）<br>有唯一解  无解 无穷多组解<br>无解的情况非常容易想到 就是等号左边不等于等号右边了<br>无穷多组解的情况就是现有的方程组个数不足以解出当前所有的未知数<br>剩下的情况不就是有唯一解的情况了吗！<br>将样例输入化成一个普通的增广矩阵（将系数和值整合到一起)<br>这样的矩阵我们很难直观的看出它的解<br>$A= \left{ \begin{array}{ccc|c} 1.00 &amp; 2.00 &amp; -1.00  &amp; -6.00\ 2.00 &amp; 1.00 &amp; -3.00 &amp; -9.00  \ -1.00 &amp; -1.00 &amp; 2.00 &amp; 7.00   \end{array} \right}$<br>所以我们最终的目的就是要把矩阵化成如下形式<br>这样我们能非常直观的看出它的解<br><del>简单来说高斯消元最后就是要搞出这玩意？</del><br>$B= \left{ \begin{array}{ccc|c} x_1 &amp; 0.00 &amp; 0.00  &amp; a\ 0.00 &amp; x_2 &amp; 0.00 &amp; b  \ 0.00 &amp; 0.00 &amp; x_3 &amp; c   \end{array} \right}$<br>然后我们继续来看样例<br>怎样才能通过初等行列变换来得到我们想要的这个矩阵呢？<br>对于样例 首先进行交换行<br>得到<br>$A= \left{ \begin{array}{ccc|c} 2.00 &amp; 1.00 &amp; -3.00  &amp; -9.00\ 1.00 &amp; 2.00 &amp; 1.00 &amp; -6.00  \ -1.00 &amp; -1.00 &amp; 2.00 &amp; 7.00   \end{array} \right}$<br>消元按照一般人的习惯是从上往下消 很容易想到要一列一列消 这样才有可能得到完美矩阵（也就是我们需要的上三角形矩阵）<br>将第一行的第一个元素（也就是<strong>主元</strong>）变为$1$<br>$A= \left{ \begin{array}{ccc|c} 1.00 &amp; 0.50 &amp; -1.50  &amp; -4.50\ 1.00 &amp; 2.00 &amp; 1.00 &amp; -6.00  \ -1.00 &amp; -1.00 &amp; 2.00 &amp; 7.00   \end{array} \right}$<br>然后用第一行去消第二三行<br>$A= \left{ \begin{array}{ccc|c} 1.00 &amp; 0.50 &amp; -1.50  &amp; -4.50\ 0.00 &amp; 1.50 &amp; 2.50 &amp; -1.50  \ 0.00 &amp; -0.50 &amp; 0.50 &amp; 2.50   \end{array} \right}$<br>然后我们发现第一列的元素在再次进行初等行列变换性质3的时候二三行已经没有影响了！<br>接着消元我们得到<br>$A= \left{ \begin{array}{ccc|c} 1.00 &amp; 0.50 &amp; -1.50  &amp; -4.50\ 0.00 &amp; 1.00 &amp; 1/3 &amp; -1.00  \ 0.00 &amp; 0.00 &amp; 1.00 &amp; 3.00   \end{array} \right}$<br>第三个方程只有一个变量了，我们可以直观的看到它的值<br>然后再倒着往上消元 我们就得到了我们想要的矩阵<br>$A= \left{ \begin{array}{ccc|c} 1.00 &amp; 0.00 &amp; 0.00  &amp; 1.00\ 0.00 &amp; 1.00 &amp; 0 &amp; -2.00  \ 0.00 &amp; 0.00 &amp; 1.00 &amp; 3.00   \end{array} \right}$</p>
+<p>最后总结出算法步骤<br>1.枚举每一列，找到绝对值最大的一行<br>2.将该行换为第一行<br>3.将该行第一个数变为1<br>4.将下面所有行的当前列消成0<br>5.迭代以上步骤</p>
+<p>然后开始开心的写代码<br>代码如下<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N=<span class="number">110</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">double</span> eps=<span class="number">1e-8</span>;</span><br><span class="line"><span class="keyword">int</span> n;</span><br><span class="line"><span class="keyword">double</span> a[N][N];<span class="comment">//增广矩阵</span></span><br><span class="line"><span class="comment">/*void out()</span></span><br><span class="line"><span class="comment">&#123;//亲测 本人遇到最好用的高斯消元debug方式</span></span><br><span class="line"><span class="comment">    for (int i=0;i&lt;n;i++)</span></span><br><span class="line"><span class="comment">    &#123;</span></span><br><span class="line"><span class="comment">        for (int j=0;j&lt;=n;j++)</span></span><br><span class="line"><span class="comment">            printf("%.2lf ",a[i][j]);</span></span><br><span class="line"><span class="comment">            puts("");</span></span><br><span class="line"><span class="comment">    &#125;</span></span><br><span class="line"><span class="comment">    puts("");</span></span><br><span class="line"><span class="comment">&#125;*/</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">gauss</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> row;<span class="comment">//行</span></span><br><span class="line">    <span class="keyword">int</span> col;<span class="comment">//列</span></span><br><span class="line">    <span class="keyword">for</span> (col=<span class="number">0</span>,row=<span class="number">0</span>;col&lt;n;col++)<span class="comment">//从每一列开始枚举</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> t=row;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i=row;i&lt;n;i++)<span class="comment">//找到当前列绝对值最大的行</span></span><br><span class="line">            <span class="keyword">if</span> (<span class="built_in">fabs</span>(a[i][col])&gt;<span class="built_in">fabs</span>(a[t][col]))</span><br><span class="line">                t=i;</span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">fabs</span>(a[t][col])&lt;eps)  <span class="keyword">continue</span>;<span class="comment">//精度问题 判断当前列</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i=col;i&lt;n+<span class="number">1</span>;i++) swap(a[t][i],a[row][i]);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i=n;i&gt;=col;i--)  a[row][i]/=a[row][col];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i=row+<span class="number">1</span>;i&lt;n;i++)</span><br><span class="line">            <span class="keyword">if</span> (<span class="built_in">fabs</span>(a[i][col])&gt;eps)</span><br><span class="line">                <span class="keyword">for</span> (<span class="keyword">int</span> j=n;j&gt;=col;j--)</span><br><span class="line">                    a[i][j]-=a[row][j]*a[i][col];<span class="comment">//模拟消元</span></span><br><span class="line">                    <span class="comment">//out();</span></span><br><span class="line">        row++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (row&lt;n)<span class="comment">//消元之后方程个数少于n</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i=row;i&lt;n;i++)</span><br><span class="line">            <span class="keyword">if</span> (<span class="built_in">fabs</span>(a[i][n])&gt;eps)<span class="comment">//出现零等于非零的情况</span></span><br><span class="line">                <span class="keyword">return</span> <span class="number">2</span>;<span class="comment">//无解</span></span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;<span class="comment">//无穷多组解</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i=n<span class="number">-1</span>;i&gt;=<span class="number">0</span>;i--)</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j=i+<span class="number">1</span>;j&lt;n;j++)</span><br><span class="line">            a[i][n]-=a[j][n]*a[i][j];</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;<span class="comment">//唯一解</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;n+<span class="number">1</span>;j++)</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">"%lf"</span>,&amp;a[i][j]);</span><br><span class="line">    <span class="keyword">int</span> ans=gauss();</span><br><span class="line">    <span class="keyword">if</span>(ans==<span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"%.2lf\n"</span>,a[i][n]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(ans==<span class="number">1</span>)</span><br><span class="line">        <span class="built_in">puts</span>(<span class="string">"Infinite group solutions"</span>);</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(ans==<span class="number">2</span>)</span><br><span class="line">        <span class="built_in">puts</span>(<span class="string">"No solution"</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>结束撒花~lalala</p>
+
+  </article>
+  <aside class="table-content" id="site-toc">
+  <div class="table-content-title">
+    <i class="fa fa-arrow-right fa-lg" id="site-toc-hide-btn"></i>
+    <span>目录</span>
+  </div>
+  <div class="table-content-main">
+    
+  </div>
+</aside>
+  
+    <aside class="passage-copyright">
+      <div>本文作者: paradise</div>
+      
+        <div>
+          原文链接: 
+          <a href target="_blank">https://zja0811.github.io/2019/11/08/高斯消元/</a>
+        </div>
+      
+      <div>
+        版权声明: 本博客所有文章除特别声明外, 均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议. 转载请注明出处!
+      </div>
+    </aside>
+  
+  
+</div>
+
+    </main>
+    
+      
+<div class="site-comment-contanier" data-plateform="leancloud">
+  
+    <p id="site-comment-info">
+      <i class="fa fa-spinner fa-spin"></i> 评论加载中
+    </p>
+    <div id="site-comment"></div>
+  
+</div>
+    
+    <div class="site-footer-wrapper">
+  <footer class="site-footer">
+    
+    <div class="site-footer-info">
+      <i class="fa fa-clock-o"></i> 本站已稳定运行<span id="site-time"></span>
+    </div>
+    
+      <div class="site-footer-info">
+        <i class="fa fa-paw"></i> 您是本站第 <span id="site-count"></span> 位访客
+      </div>
+    
+    
+      <div class="site-footer-info">
+        <i class="fa fa-at"></i> Email: 1246785974@qq.com
+      </div>
+    
+    <div class="site-footer-info">
+      <i class="fa fa-copyright"></i> 
+      2019 <a href="https://github.com/dongyuanxin/theme-ad/" target="_blank">Theme-AD</a>.
+      Created by <a href="https://godbmw.com/" target="_blank">GodBMW</a>.
+      All rights reserved.
+    </div>
+  </footer>
+</div>
+    <div id="site-layer" style="display:none;">
+  <div class="site-layer-content">
+    <div class="site-layer-header">
+      <span class="site-layer-header-title" id="site-layer-title"></span>
+      <i class="fa fa-close" id="site-layer-close"></i>
+    </div>
+    <div class="site-layer-body" id="site-layer-container">
+      <div class="site-layer-input" id="site-layer-search" style="display: none;">
+        <input type="text">
+        <i class="fa fa-search"></i>
+      </div>
+      
+        <div class="site-layer-reward" id="site-layer-reward" style="display: none;">
+          
+            <div>
+              <img src="/images/wechat.png" alt="WeChat">
+              
+                <p>WeChat</p>
+              
+            </div>
+          
+            <div>
+              <img src="/images/alipay.png" alt="AliPay">
+              
+                <p>AliPay</p>
+              
+            </div>
+          
+        </div>
+      
+      <div id="site-layer-welcome" style="display:none;"></div>
+    </div>
+  </div>
+</div>
+    
+
+<div class="bottom-bar">
+  <div class="bottom-bar-left">
+    <a href="javascript:void(0);" data-enable="false">
+      <i class="fa fa-arrow-left"></i>
+    </a>
+    <a href="/2019/10/11/和抑郁战斗的这些日子/" data-enable="true">
+      <i class="fa fa-arrow-right"></i>
+    </a>
+  </div>
+  <div class="bottom-bar-right">
+    <a href="javascript:void(0);" data-enable="true" id="site-toc-show-btn">
+      <i class="fa fa-bars"></i>
+    </a>
+    
+      <a href="#site-comment" data-enable="true">
+        <i class="fa fa-commenting"></i>
+      </a>
+    
+    <a href="javascript:void(0);" id="site-toggle-share-btn">
+      <i class="fa fa-share-alt"></i>
+    </a>
+    
+      <a href="javascript:void(0);" id="site-reward">
+        <i class="fa fa-thumbs-up"></i>
+      </a>
+    
+    <a href="javascript:void(0);" id="back-top-btn">
+      <i class="fa fa-chevron-up"></i>
+    </a>
+  </div>
+</div>
+    <div id="share-btn">
+  
+    <a id="share-btn-twitter" href="javascript:void(0);" target="_blank">
+      <i class="fa fa-twitter"></i>
+    </a>
+  
+  
+    <a id="share-btn-facebook" href="javascript:void(0);" target="_blank">
+      <i class="fa fa-facebook"></i>
+    </a>
+  
+  
+    <a id="share-btn-weibo" href="javascript:void(0);" target="_blank">
+      <i class="fa fa-weibo"></i>
+    </a>
+  
+  
+    <a id="share-btn-qq" href="javascript:void(0);" target="_blank">
+      <i class="fa fa-qq"></i>
+    </a>
+  
+  
+    <a id="share-btn-wechat" href="javascript:void(0);" target="_blank">
+      <i class="fa fa-wechat"></i>
+    </a>
+  
+</div>
+    
+
+
+
+
+
+    
+  </body>
+</html>
